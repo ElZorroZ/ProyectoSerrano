@@ -37,6 +37,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         btn_IniciarSesion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnAUXILIAR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,13 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
+        btnAUXILIAR.setText("nuevo boton");
+        btnAUXILIAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAUXILIARActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,11 +82,13 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(btn_RegistrarUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                                .addComponent(btn_IniciarSesion))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAUXILIAR)
+                                    .addComponent(btn_IniciarSesion)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +111,9 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(btnAUXILIAR)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -134,7 +146,16 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     private void btn_IniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarSesionActionPerformed
         ArrayList array=conexion.Select_Estado();
         System.out.println(array.get(0));
+        
+        
     }//GEN-LAST:event_btn_IniciarSesionActionPerformed
+
+    private void btnAUXILIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAUXILIARActionPerformed
+        Crear_Formulario Formu=new Crear_Formulario();
+        Formu.setVisible(true);
+        Formu.setSize(500,450);
+        Formu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnAUXILIARActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +194,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAUXILIAR;
     private javax.swing.JButton btn_IniciarSesion;
     private javax.swing.JButton btn_RegistrarUsuario;
     private javax.swing.JLabel jLabel1;

@@ -36,6 +36,11 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_CrearFormulario.setText("Crear formulario");
+        btn_CrearFormulario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CrearFormularioActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ver formulario");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +97,10 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_CrearFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearFormularioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CrearFormularioActionPerformed
 
     /**
      * @param args the command line arguments
