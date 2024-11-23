@@ -5,6 +5,7 @@
  */
 package sap.successfactors.Gerente;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -16,8 +17,8 @@ import java.util.Queue;
  */
 public class Crear_Formulario extends javax.swing.JFrame {
     Crear_Formulario_Codigo codigo =new Crear_Formulario_Codigo();
-    Map<String, Boolean> OpcionesMapa=new HashMap<>();
-    Map<String, Map<String, Boolean> > PreguntaOpcionesMapa=new HashMap<>();
+    Queue<String> OpcionesLista=new LinkedList<>();
+    Map<String, Queue<String> > PreguntaOpcionesMapa=new HashMap<>();
     Queue<String> Preguntas=new LinkedList<>();
     String pregunta;
     int cant;
@@ -43,7 +44,6 @@ public class Crear_Formulario extends javax.swing.JFrame {
         txtf_pregunta = new javax.swing.JTextField();
         btn_agregarPregunta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtf_opcion = new javax.swing.JTextField();
         lbl_opcion = new javax.swing.JLabel();
@@ -53,7 +53,6 @@ public class Crear_Formulario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtf_Formulario = new javax.swing.JTextField();
         btn_volver = new javax.swing.JButton();
-        cbox_instancia = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,16 +69,9 @@ public class Crear_Formulario extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(230, 230, 230));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Opcion Incorrecta", "Respuesta Correcta" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("(Opcional)");
 
-        lbl_opcion.setText("Opcion Incorrecta");
+        lbl_opcion.setText("Opcion ");
 
         btn_agregarOpc1.setText("Agregar Opcion");
         btn_agregarOpc1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +104,8 @@ public class Crear_Formulario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_agregarOpc1)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_aceptarOpciones))
-                        .addGap(27, 27, 27))))
+                        .addGap(41, 41, 41))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,11 +116,9 @@ public class Crear_Formulario extends javax.swing.JFrame {
                 .addComponent(lbl_opcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtf_opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btn_agregarOpc1)
-                .addGap(18, 18, 18)
+                    .addComponent(txtf_opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_agregarOpc1))
+                .addGap(57, 57, 57)
                 .addComponent(btn_aceptarOpciones)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -180,19 +169,12 @@ public class Crear_Formulario extends javax.swing.JFrame {
 
         btn_volver.setText("Volver");
 
-        cbox_instancia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primera instancia  ", "Segunda instancia" }));
-        cbox_instancia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbox_instanciaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,8 +184,6 @@ public class Crear_Formulario extends javax.swing.JFrame {
                                 .addComponent(btn_crearFormulario))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cbox_instancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(78, 78, 78))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -221,9 +201,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbox_instancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
@@ -255,22 +233,11 @@ public class Crear_Formulario extends javax.swing.JFrame {
         cant++;
     }//GEN-LAST:event_btn_agregarPreguntaActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String opc=jComboBox1.getSelectedItem().toString();
-        lbl_opcion.setText(opc);
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void btn_agregarOpc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarOpc1ActionPerformed
-        boolean rta;
-        if (jComboBox1.getSelectedItem().toString()=="Opcion Incorrecta"){
-            System.out.println("False");
-            rta=false;
-        }else{
-            System.out.println("true");
-            rta=true;
-        }
-
-        OpcionesMapa.put(txtf_opcion.getText(),rta);
+        
+        OpcionesLista.add(txtf_opcion.getText());
+        System.out.println("-----");
+        System.out.println(OpcionesLista);
         txtf_opcion.setText("");
 
     }//GEN-LAST:event_btn_agregarOpc1ActionPerformed
@@ -278,28 +245,24 @@ public class Crear_Formulario extends javax.swing.JFrame {
     private void btn_aceptarOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarOpcionesActionPerformed
         //codigo.aceptar_opciones(OpcionesMapa);
         pregunta=txtf_pregunta.getText();
-        /*
-        for (Map.Entry<String, Boolean> Opciones: OpcionesMapa.entrySet()){
-            System.out.println(Opciones.getKey());
-            PreguntaOpcionesMapa.put(pregunta,Opciones.getKey());
-        }*/
-        PreguntaOpcionesMapa.put(pregunta,OpcionesMapa);
+        Queue<String> copiaOpcionesLista = new LinkedList<>(OpcionesLista);
+        
+        PreguntaOpcionesMapa.put(pregunta,copiaOpcionesLista);
         System.out.println(PreguntaOpcionesMapa);
-        Preguntas.offer(txtf_pregunta.getText());
+        Preguntas.offer(pregunta);
         txtf_opcion.setText("");
         txtf_pregunta.setText("");
         cant++;
+        OpcionesLista.clear();
+
+        System.out.println(OpcionesLista);
     }//GEN-LAST:event_btn_aceptarOpcionesActionPerformed
 
-    private void cbox_instanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_instanciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbox_instanciaActionPerformed
-
     private void btn_crearFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearFormularioActionPerformed
-        String instancia=cbox_instancia.getSelectedItem().toString();
         System.out.println(cant);
         String nombre = txtf_Formulario.getText();
-        codigo.Agregar_Formulario(instancia,nombre, cant, OpcionesMapa, PreguntaOpcionesMapa, Preguntas);
+        System.out.println(PreguntaOpcionesMapa);
+        codigo.Agregar_Formulario(nombre, cant, OpcionesLista, PreguntaOpcionesMapa, Preguntas);
     }//GEN-LAST:event_btn_crearFormularioActionPerformed
 
     /**
@@ -344,8 +307,6 @@ public class Crear_Formulario extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarPregunta;
     private javax.swing.JButton btn_crearFormulario;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JComboBox<String> cbox_instancia;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
