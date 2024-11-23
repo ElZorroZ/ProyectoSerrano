@@ -41,6 +41,8 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
         Btn_Revisar = new javax.swing.JButton();
         JTextField_ID = new javax.swing.JTextField();
         btn_volver = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        Btn_Eliminar = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,25 +104,51 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
             }
         });
 
+        Btn_Eliminar.setText("Eliminar candidato");
+        Btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EliminarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(Btn_Eliminar)
+                .addGap(0, 32, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Btn_Revisar)
-                        .addGap(35, 35, 35)
-                        .addComponent(Btn_Preseleccionar)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(Btn_Revisar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Btn_Preseleccionar)))
+                        .addContainerGap(38, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,11 +156,13 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
                 .addComponent(btn_volver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Btn_Revisar)
-                    .addComponent(Btn_Preseleccionar))
-                .addGap(5, 5, 5)
+                    .addComponent(Btn_Preseleccionar)
+                    .addComponent(Btn_Revisar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -144,7 +174,7 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -162,12 +192,22 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
 
         // Abre la nueva ventana con los detalles del candidato
         Revisar_Datos_Candidato vR = new Revisar_Datos_Candidato(candidatoID);
-        vR.setVisible(true); // Muestra la ventana
+        this.setVisible(false);
+        vR.setSize(600,500);
+        vR.setLocationRelativeTo(null);
+        vR.setVisible(true);
 // TODO add your handling code here:
     }//GEN-LAST:event_Btn_RevisarActionPerformed
 
     private void Btn_PreseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PreseleccionarActionPerformed
-        // TODO add your handling code here:
+        Ver_Candidatos objetoCandidato = new Ver_Candidatos();
+        try {
+            objetoCandidato.PreseleccionarCandidato(JTextField_ID);
+            objetoCandidato.MostrarCandidatos(TablaCandidatos);
+        } catch (Exception e) {
+            System.err.println("Error al modificar categoría: " + e.getMessage());
+        }
+        TablaCandidatos.clearSelection();
     }//GEN-LAST:event_Btn_PreseleccionarActionPerformed
 
     private void JTextField_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextField_IDActionPerformed
@@ -180,8 +220,18 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
         vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
-// TODO add your handling code here:
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
+        Ver_Candidatos objetoCandidato = new Ver_Candidatos();
+        try {
+            objetoCandidato.EliminarCandidato(JTextField_ID);
+            objetoCandidato.MostrarCandidatos(TablaCandidatos);
+        } catch (Exception e) {
+            System.err.println("Error al eliminar candidato: " + e.getMessage());
+        }
+        TablaCandidatos.clearSelection(); 
+    }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,12 +269,14 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Eliminar;
     private javax.swing.JButton Btn_Preseleccionar;
     private javax.swing.JButton Btn_Revisar;
     private javax.swing.JTextField JTextField_ID;
     private javax.swing.JTable TablaCandidatos;
     private javax.swing.JButton btn_volver;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
