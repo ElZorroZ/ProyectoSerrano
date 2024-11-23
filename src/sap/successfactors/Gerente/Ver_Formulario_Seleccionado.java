@@ -14,38 +14,40 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author PC
  */
-public class Ver_Formulario extends javax.swing.JFrame {
+public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
     DefaultListModel modelo = new DefaultListModel();
     Ver_Formulario_Codigo vFc=new Ver_Formulario_Codigo();
+    int Id;
     /**
-     * Creates new form Ver_Formulario
+     * Creates new form Ver_Formulario_Seleccionado
      */
-    public Ver_Formulario() {
+    public void mostrar_id(int id){
+        Id=id;
+        System.out.println(Id);
+        System.out.println("---");
+    }
+    public Ver_Formulario_Seleccionado(int Id) {
         initComponents();
- 
+        
         this.setResizable(false);
-        modelo=vFc.mostrar(modelo);
-        list_Formularios.setModel(modelo);
-        list_Formularios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list_Formularios.addListSelectionListener(new ListSelectionListener() {
+        System.out.println("----");
+        System.out.println(Id);
+        modelo=vFc.mostrar_Preguntas(modelo, Id);
+        
+        lista_Preguntas.setModel(modelo);
+        lista_Preguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lista_Preguntas.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
                 if (!e.getValueIsAdjusting()) {
-                    String itemSeleccionado = list_Formularios.getSelectedValue();
+                    String itemSeleccionado = lista_Preguntas.getSelectedValue();
                     String[] separado=itemSeleccionado.split("-");
                     int id=Integer.parseInt(separado[0]);
-                    System.out.println(id);
-                    Esconder(id);
                     
                     
                     
                 }
             }
         });
-    }
-
-    private void Esconder(int id){//Cierra la pantalla y abre la pantalla de la zona elegida
-        this.setVisible(false);
-        vFc.mostrar_Pantalla_Formulario_Seleccionado(id);
     }
     
 
@@ -60,32 +62,32 @@ public class Ver_Formulario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        list_Formularios = new javax.swing.JList<>();
+        lista_Preguntas = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        list_Formularios.setModel(new javax.swing.AbstractListModel<String>() {
+        lista_Preguntas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(list_Formularios);
+        jScrollPane1.setViewportView(lista_Preguntas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(107, 107, 107)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(79, 79, 79)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,41 +107,21 @@ public class Ver_Formulario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ver_Formulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ver_Formulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ver_Formulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ver_Formulario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ver_Formulario().setVisible(true);
+                new Ver_Formulario_Seleccionado(Id).setVisible(true);
             }
         });
     }
+    */
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> list_Formularios;
+    private javax.swing.JList<String> lista_Preguntas;
     // End of variables declaration//GEN-END:variables
 }

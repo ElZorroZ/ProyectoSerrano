@@ -103,13 +103,15 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Ver_Formulario ver=new Ver_Formulario();
+        this.setVisible(false);
+        ver.setLocationRelativeTo(null);
+        ver.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_CrearFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearFormularioActionPerformed
         Crear_Formulario vM = new Crear_Formulario();
         this.setVisible(false);
-        vM.setSize(600,500);
         vM.setLocationRelativeTo(null);
         vM.setVisible(true);
     }//GEN-LAST:event_btn_CrearFormularioActionPerformed
