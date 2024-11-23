@@ -42,7 +42,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         btn_IniciarSesion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnAUXILIAR = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,13 +66,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña");
 
-        btnAUXILIAR.setText("nuevo boton");
-        btnAUXILIAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAUXILIARActionPerformed(evt);
-            }
-        });
-
         jLabel4.setText("Inicio");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -90,9 +82,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(btn_RegistrarUsuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAUXILIAR)
-                                    .addComponent(btn_IniciarSesion)))))
+                                .addComponent(btn_IniciarSesion))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,9 +111,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTextField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAUXILIAR)
-                .addGap(13, 13, 13)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -181,12 +169,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         vR.setSize(930,530);
         vR.setLocationRelativeTo(null);
     }
-    private void btnAUXILIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAUXILIARActionPerformed
-        Crear_Formulario Formu=new Crear_Formulario();
-        Formu.setVisible(true);
-        Formu.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnAUXILIARActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -226,7 +208,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JTextField_Contra;
     private javax.swing.JTextField JTextField_Usuario;
-    private javax.swing.JButton btnAUXILIAR;
     private javax.swing.JButton btn_IniciarSesion;
     private javax.swing.JButton btn_RegistrarUsuario;
     private javax.swing.JLabel jLabel1;

@@ -7,16 +7,13 @@ package sap.successfactors;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Base64;
 import javax.swing.JOptionPane;
+import java.sql.Connection; 
+import java.sql.DriverManager; 
+import java.sql.SQLException;
 /**
  *
  * @author PC
@@ -32,14 +29,17 @@ public class ConexionBDD {
     public Connection Conectar() {
         Connection miConexion = null; // Inicializa la conexión como nula
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // Asegúrate de que la URL esté correctamente formateada
-            String url = "mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq";
+            String url = "jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq";
             String user = "uyhamlklqd4j3ukm"; // Nombre de usuario
             String password = "DfseeRtbCM0I8nRBGbLS"; // Contraseña
 
             // Intenta establecer la conexión
             miConexion = DriverManager.getConnection(url, user, password);
             System.out.println("Conexión exitosa a la base de datos.");
+        } catch (ClassNotFoundException e) { 
+                System.out.println("Driver JDBC no encontrado."); e.printStackTrace();
         } catch (SQLException e) {
             System.out.println("No se pudo conectar a la base de datos.");
             e.printStackTrace();
