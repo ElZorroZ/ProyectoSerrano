@@ -196,7 +196,6 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
         vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
-// TODO add your handling code here:
     }//GEN-LAST:event_Btn_RevisarActionPerformed
 
     private void Btn_PreseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PreseleccionarActionPerformed
@@ -205,7 +204,7 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
             objetoCandidato.PreseleccionarCandidato(JTextField_ID);
             objetoCandidato.MostrarCandidatos(TablaCandidatos);
         } catch (Exception e) {
-            System.err.println("Error al modificar categoría: " + e.getMessage());
+            System.err.println("Error al preseleccionar candidato: " + e.getMessage());
         }
         TablaCandidatos.clearSelection();
     }//GEN-LAST:event_Btn_PreseleccionarActionPerformed

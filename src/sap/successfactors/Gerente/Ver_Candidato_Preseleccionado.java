@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sap.successfactors.RRHH;
-
+package sap.successfactors.Gerente;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -13,12 +12,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import sap.successfactors.ConexionBDD;
-
 /**
  *
  * @author thiag
  */
-public class Ver_Candidatos {
+public class Ver_Candidato_Preseleccionado {
     private String ID;
 
     public String getID() {
@@ -29,7 +27,7 @@ public class Ver_Candidatos {
         this.ID = ID;
     }
     
-    public void MostrarCandidatos(JTable paramTablaTotalCandidatos) {
+    public void MostrarCandidatosPreseleccionados(JTable paramTablaTotalCandidatos) {
         ConexionBDD objetoConexion = new ConexionBDD();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
@@ -42,7 +40,7 @@ public class Ver_Candidatos {
 
         paramTablaTotalCandidatos.setModel(modelo);
         
-        String sql = "SELECT Id, Nombre, Apellido, Email FROM Usuario WHERE IdEstado= 3;";
+        String sql = "SELECT Id, Nombre, Apellido, Email FROM Usuario WHERE IdEstado= 4;";
         String[] datos = new String[4];
 
         try {
@@ -65,7 +63,7 @@ public class Ver_Candidatos {
     }
 
     // Método para seleccionar el reembolso y obtener su ID
-    public void SeleccionarCandidato(JTable paramTablaCandidato, JTextField paramID) {
+    public void SeleccionarCandidatoPreseleccionado(JTable paramTablaCandidato, JTextField paramID) {
         try {
             int fila = paramTablaCandidato.getSelectedRow();
             if (fila >= 0) {
@@ -111,12 +109,12 @@ public class Ver_Candidatos {
             objetoConexion.cerrarConexion();
         }
     }
-    public void PreseleccionarCandidato(JTextField paramID) {
+    public void SeleccionarCandidato(JTextField paramID) {
         setID(paramID.getText());
     
         ConexionBDD objetoConexion = new ConexionBDD();
 
-        String consulta = "UPDATE Usuario SET IdEstado = 4 WHERE Id = ?;";
+        String consulta = "UPDATE Usuario SET IdEstado = 5 WHERE Id = ?;";
 
         try {
             // Usamos un PreparedStatement, no CallableStatement para consultas SQL estándar
@@ -156,5 +154,4 @@ public class Ver_Candidatos {
             objetoConexion.cerrarConexion();
         }
     }
-
 }
