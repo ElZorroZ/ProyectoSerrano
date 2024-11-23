@@ -16,6 +16,8 @@ public class Revisar_Datos_Candidato extends javax.swing.JFrame {
      */
     public Revisar_Datos_Candidato(String candidatoID) {
         initComponents();
+        Ver_Candidatos objetoCandidato = new Ver_Candidatos();
+        objetoCandidato.MostrarCandidatoPorID(TablaCandidato, candidatoID);
     }
 
     /**
@@ -97,7 +99,7 @@ public class Revisar_Datos_Candidato extends javax.swing.JFrame {
         vP.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_volverActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
