@@ -31,9 +31,10 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_CrearFormulario = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Btn_VerFormularios = new javax.swing.JButton();
+        Btn_BorrarFormularios = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
+        Btn_SeleccionarCandidatos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,19 +45,31 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ver formulario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_VerFormularios.setText("Ver formularios");
+        Btn_VerFormularios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Btn_VerFormulariosActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Revisar candidatos");
+        Btn_BorrarFormularios.setText("Borrar formularios");
+        Btn_BorrarFormularios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_BorrarFormulariosActionPerformed(evt);
+            }
+        });
 
         btn_volver.setText("Volver");
         btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_volverActionPerformed(evt);
+            }
+        });
+
+        Btn_SeleccionarCandidatos.setText("Seleccionar candidatos");
+        Btn_SeleccionarCandidatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_SeleccionarCandidatosActionPerformed(evt);
             }
         });
 
@@ -67,10 +80,11 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(127, Short.MAX_VALUE))
+                    .addComponent(Btn_BorrarFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_VerFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_SeleccionarCandidatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -82,10 +96,12 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addComponent(btn_CrearFormulario)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(Btn_VerFormularios)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addComponent(Btn_BorrarFormularios)
+                .addGap(18, 18, 18)
+                .addComponent(Btn_SeleccionarCandidatos)
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,12 +118,12 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Btn_VerFormulariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VerFormulariosActionPerformed
         Ver_Formulario ver=new Ver_Formulario();
         this.setVisible(false);
         ver.setLocationRelativeTo(null);
         ver.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Btn_VerFormulariosActionPerformed
 
     private void btn_CrearFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearFormularioActionPerformed
         Crear_Formulario vM = new Crear_Formulario();
@@ -123,6 +139,20 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
         vM.setLocationRelativeTo(null);
         vM.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void Btn_BorrarFormulariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BorrarFormulariosActionPerformed
+        Borrar_Formulario vB = new Borrar_Formulario();
+        this.setVisible(false);
+        vB.setLocationRelativeTo(null);
+        vB.setVisible(true);
+    }//GEN-LAST:event_Btn_BorrarFormulariosActionPerformed
+
+    private void Btn_SeleccionarCandidatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SeleccionarCandidatosActionPerformed
+        Seleccionar_Candidato vS = new Seleccionar_Candidato();
+        this.setVisible(false);
+        vS.setLocationRelativeTo(null);
+        vS.setVisible(true);
+    }//GEN-LAST:event_Btn_SeleccionarCandidatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,10 +190,11 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_BorrarFormularios;
+    private javax.swing.JButton Btn_SeleccionarCandidatos;
+    private javax.swing.JButton Btn_VerFormularios;
     private javax.swing.JButton btn_CrearFormulario;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
