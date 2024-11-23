@@ -127,19 +127,7 @@ public class Registrarse extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SeleccionarActionPerformed
-        /*JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-                int resultado = fileChooser.showOpenDialog(null);
-
-                if (resultado == JFileChooser.APPROVE_OPTION) {
-                    archivoSeleccionado = fileChooser.getSelectedFile();
-                    if (archivoSeleccionado.getName().endsWith(".pdf")) {
-                        txtRutaArchivo.setText(archivoSeleccionado.getAbsolutePath());
-                        btn_Subir.setEnabled(true);
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Seleccione un archivo PDF válido.");
-                    }
-                }*/
+/*
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int resultado = fileChooser.showOpenDialog(null);
@@ -180,16 +168,17 @@ public class Registrarse extends javax.swing.JFrame {
             archivoSeleccionado = null; // Resetea en caso de cancelar
         }
 
-            
+          */  
     }//GEN-LAST:event_btn_SeleccionarActionPerformed
 
     private void btn_SubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SubirActionPerformed
+        /*
         if (archivoSeleccionado != null) {
             conexion.subirArchivo(archivoSeleccionado);
         } else {
             JOptionPane.showMessageDialog(null, "No hay archivo seleccionado para subir.");
         }
-    
+    */
     }//GEN-LAST:event_btn_SubirActionPerformed
 
     

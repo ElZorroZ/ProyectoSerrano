@@ -153,7 +153,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     private void btnAUXILIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAUXILIARActionPerformed
         Crear_Formulario Formu=new Crear_Formulario();
         Formu.setVisible(true);
-        Formu.setSize(500,450);
         Formu.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnAUXILIARActionPerformed
 
