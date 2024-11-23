@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package sap.successfactors;
-
+import sap.successfactors.Gerente.Pantalla_Gerente;
+import sap.successfactors.RRHH.Pantalla_RRHH;
 import sap.successfactors.Candidato.Registrarse;
 import sap.successfactors.Gerente.Crear_Formulario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
      */
     public Pantalla_Inicio() {
         initComponents();
+        InicioSesion objetoSesion = new InicioSesion();
     }
 
     /**
@@ -33,28 +36,25 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_RegistrarUsuario = new javax.swing.JButton();
-        txtf_Mail = new javax.swing.JTextField();
-        txtf_Contraseña = new javax.swing.JTextField();
+        JTextField_Usuario = new javax.swing.JTextField();
+        JTextField_Contra = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_IniciarSesion = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnAUXILIAR = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btn_RegistrarUsuario.setText("Registrarse");
+        btn_RegistrarUsuario.setText("Ingresar");
         btn_RegistrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_RegistrarUsuarioActionPerformed(evt);
             }
         });
 
-        txtf_Mail.setText("jTextField1");
-
-        txtf_Contraseña.setText("jTextField2");
-
-        jLabel1.setText("¿No tiene una cuenta?");
+        jLabel1.setText("¿Quieres postularte?");
 
         btn_IniciarSesion.setText("Iniciar Sesion");
         btn_IniciarSesion.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +74,8 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Inicio");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -87,7 +89,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(btn_RegistrarUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnAUXILIAR)
                                     .addComponent(btn_IniciarSesion)))))
@@ -96,23 +98,29 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtf_Mail, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                                .addComponent(txtf_Contraseña))
+                                .addComponent(JTextField_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                                .addComponent(JTextField_Contra))
                             .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtf_Mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextField_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTextField_Contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAUXILIAR)
                 .addGap(13, 13, 13)
@@ -146,12 +154,33 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RegistrarUsuarioActionPerformed
 
     private void btn_IniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarSesionActionPerformed
-        ArrayList array=conexion.Select_Estado();
-        System.out.println(array.get(0));
-        
-        
+        InicioSesion objetoSesion = new InicioSesion(); 
+        try { 
+            int idEstado = objetoSesion.IngresarSesion(JTextField_Usuario, JTextField_Contra); 
+            if (idEstado == 1) { 
+                abrirVentana1(); 
+            } else if (idEstado == 2) { 
+                abrirVentana2(); 
+            } else { 
+                JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE); } 
+            } catch (Exception e) { 
+                JOptionPane.showMessageDialog(this, "Ocurrio un error en las credenciales: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE); e.printStackTrace(); 
+            }    
     }//GEN-LAST:event_btn_IniciarSesionActionPerformed
-
+    private void abrirVentana1() { 
+        Pantalla_Gerente  vG = new Pantalla_Gerente();
+        this.setVisible(false);
+        vG.setVisible(true);
+        vG.setSize(930,530);
+        vG.setLocationRelativeTo(null);
+    } 
+    private void abrirVentana2() { 
+        Pantalla_RRHH  vR = new Pantalla_RRHH();
+        this.setVisible(false);
+        vR.setVisible(true);
+        vR.setSize(930,530);
+        vR.setLocationRelativeTo(null);
+    }
     private void btnAUXILIARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAUXILIARActionPerformed
         Crear_Formulario Formu=new Crear_Formulario();
         Formu.setVisible(true);
@@ -195,14 +224,15 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JTextField_Contra;
+    private javax.swing.JTextField JTextField_Usuario;
     private javax.swing.JButton btnAUXILIAR;
     private javax.swing.JButton btn_IniciarSesion;
     private javax.swing.JButton btn_RegistrarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtf_Contraseña;
-    private javax.swing.JTextField txtf_Mail;
     // End of variables declaration//GEN-END:variables
 }
