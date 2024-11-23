@@ -43,7 +43,7 @@ public class Ver_Formulario extends javax.swing.JFrame {
         });
     }
 
-    private void Esconder(int id){//Cierra la pantalla y abre la pantalla de la zona elegida
+    private void Esconder(int id){
         this.setVisible(false);
         vFc.mostrar_Pantalla_Formulario_Seleccionado(id);
     }

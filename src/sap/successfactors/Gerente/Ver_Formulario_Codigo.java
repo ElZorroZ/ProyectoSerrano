@@ -39,6 +39,16 @@ public class Ver_Formulario_Codigo {
         
     }
     
+    public void mostrar_Pantalla_Pregunta(int id){
+        int Id=id;
+        System.out.println(Id);
+        Ver_Pregunta formu=new Ver_Pregunta(Id);
+        //Corregir --- formu.mostrar_id(Id);
+        formu.setVisible(true);
+        formu.setLocationRelativeTo(null);
+        
+    }
+    
     public DefaultListModel mostrar_Preguntas(DefaultListModel modelo, int id){
         modelo.removeAllElements();
         ArrayList array=Select_Preguntas(id);
