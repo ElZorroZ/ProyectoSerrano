@@ -5,6 +5,8 @@
  */
 package sap.successfactors;
 
+import sap.successfactors.Candidato.Registrarse;
+import sap.successfactors.Gerente.Crear_Formulario;
 import java.util.ArrayList;
 
 /**

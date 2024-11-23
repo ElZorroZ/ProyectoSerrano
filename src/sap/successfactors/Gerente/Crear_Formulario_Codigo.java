@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sap.successfactors;
+package sap.successfactors.Gerente;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
+import sap.successfactors.ConexionBDD;
 
 /**
  *
