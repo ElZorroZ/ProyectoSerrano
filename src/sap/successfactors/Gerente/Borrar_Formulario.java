@@ -10,12 +10,15 @@ package sap.successfactors.Gerente;
  * @author thiag
  */
 public class Borrar_Formulario extends javax.swing.JFrame {
-
+    String ID;
     /**
      * Creates new form Borrar_Formulario
      */
     public Borrar_Formulario() {
         initComponents();
+        JTextField_ID.setVisible(false); 
+        Borrar_Formulario_Codigo objetoCandidato = new Borrar_Formulario_Codigo();
+        objetoCandidato.MostrarFormularios(TablaFormulario);
     }
 
     /**
@@ -27,21 +30,122 @@ public class Borrar_Formulario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btn_volver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaFormulario = new javax.swing.JTable();
+        Btn_Eliminar = new javax.swing.JButton();
+        JTextField_ID = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
+            }
+        });
+
+        TablaFormulario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        TablaFormulario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaFormularioMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(TablaFormulario);
+
+        Btn_Eliminar.setText("Eliminar Formulario");
+        Btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EliminarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_volver)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(Btn_Eliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_volver)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Btn_Eliminar)
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        Pantalla_Gerente vG = new Pantalla_Gerente();
+        this.setVisible(false);
+        vG.setSize(600,500);
+        vG.setLocationRelativeTo(null);
+        vG.setVisible(true);
+    }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void TablaFormularioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaFormularioMouseClicked
+        Borrar_Formulario_Codigo objetoFormulario = new Borrar_Formulario_Codigo();
+        objetoFormulario.SeleccionarFormulario(TablaFormulario, JTextField_ID);
+        ID = JTextField_ID.getText();
+    }//GEN-LAST:event_TablaFormularioMouseClicked
+
+    private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
+        Borrar_Formulario_Codigo objetoFormulario = new Borrar_Formulario_Codigo();
+        try {
+            objetoFormulario.EliminarFormulario(JTextField_ID);
+            objetoFormulario.MostrarFormularios(TablaFormulario);
+        } catch (Exception e) {
+            System.err.println("Error al eliminar categoría: " + e.getMessage());
+        }
+        TablaFormulario.clearSelection();
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +183,11 @@ public class Borrar_Formulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Eliminar;
+    private javax.swing.JTextField JTextField_ID;
+    private javax.swing.JTable TablaFormulario;
+    private javax.swing.JButton btn_volver;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

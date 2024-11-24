@@ -5,6 +5,7 @@
  */
 package sap.successfactors.RRHH;
 import sap.successfactors.RRHH.Preseleccionar_Candidato;
+import sap.successfactors.Pantalla_Inicio;
 
 /**
  *
@@ -30,6 +31,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         Btn_Preseleccionar = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,6 +41,13 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         Btn_Preseleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_PreseleccionarActionPerformed(evt);
+            }
+        });
+
+        btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
             }
         });
 
@@ -52,11 +61,15 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
                     .addComponent(Btn_Preseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btn_volver)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addComponent(btn_volver)
+                .addGap(27, 27, 27)
                 .addComponent(jButton1)
                 .addGap(33, 33, 33)
                 .addComponent(Btn_Preseleccionar)
@@ -73,6 +86,14 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         vP.setLocationRelativeTo(null);
         vP.setVisible(true);
     }//GEN-LAST:event_Btn_PreseleccionarActionPerformed
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        Pantalla_Inicio vM = new Pantalla_Inicio();
+        this.setVisible(false);
+        vM.setSize(600,500);
+        vM.setLocationRelativeTo(null);
+        vM.setVisible(true);
+    }//GEN-LAST:event_btn_volverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,6 +132,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Preseleccionar;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
