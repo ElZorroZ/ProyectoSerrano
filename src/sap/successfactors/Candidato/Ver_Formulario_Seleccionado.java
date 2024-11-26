@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sap.successfactors.Gerente;
+package sap.successfactors.Candidato;
 
+import sap.successfactors.Gerente.*;
 import javax.swing.DefaultListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -18,13 +19,14 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
     DefaultListModel modelo = new DefaultListModel();
     Ver_Formulario_Codigo vFc=new Ver_Formulario_Codigo();
     int Id;
+    int idUsuario;
     /**
      * Creates new form Ver_Formulario_Seleccionado
      */
-    public void mostrar_id(int id){
+    public void mostrar_id(int id, int idusu){
         Id=id;
-        System.out.println(Id);
-        System.out.println("---");
+        idUsuario=idusu;
+
     }
     public Ver_Formulario_Seleccionado(int Id) {
         initComponents();
@@ -32,6 +34,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
         this.setResizable(false);
 
         modelo=vFc.mostrar_Preguntas(modelo, Id);
+        
         
         lista_Preguntas.setModel(modelo);
         lista_Preguntas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -42,16 +45,16 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
                     String[] separado=itemSeleccionado.split("-");
                     int id=Integer.parseInt(separado[0]);
                     String pregunta=separado[1];
-                    Esconder(id, pregunta);
+                    Esconder(id, pregunta, idUsuario, Id);
                     
                     
                 }
             }
         });
     }
-    private void Esconder(int id, String pregunta){
+    private void Esconder(int id, String pregunta, int idUsuario, int idFormulario){
         this.setVisible(false);
-        vFc.mostrar_Pantalla_Pregunta(id, pregunta);
+        vFc.mostrar_Pantalla_Pregunta(id, pregunta, idUsuario, idFormulario);
     }
 
     /**

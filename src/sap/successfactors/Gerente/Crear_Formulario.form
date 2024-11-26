@@ -52,10 +52,7 @@
                                   <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
                                   <Component id="btn_crearFormulario" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtf_Formulario" min="-2" pref="264" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtf_Formulario" alignment="0" min="-2" pref="264" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -260,6 +257,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_volverActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

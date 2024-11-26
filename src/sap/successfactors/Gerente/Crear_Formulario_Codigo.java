@@ -22,16 +22,16 @@ import sap.successfactors.ConexionBDD;
  * @author PC
  */
 public class Crear_Formulario_Codigo {
-    public void Agregar_Formulario(String nombre, int cant, Queue<String>  OpcionesMapa, Map<String, Queue<String>> PreguntaOpcionesMapa, Queue<String> Preguntas){
-        Insert_Formulario(nombre, cant);
+    public void Agregar_Formulario(String nombre, Queue<String>  OpcionesMapa, Map<String, Queue<String>> PreguntaOpcionesMapa, Queue<String> Preguntas){
+        Insert_Formulario(nombre);
         int id = Select_ID_Formulario(nombre);
         
         while (!Preguntas.isEmpty()){
             boolean opc=false;
             String pregunta=Preguntas.poll();
-            System.out.println(pregunta);
+            //System.out.println(pregunta);
             if (PreguntaOpcionesMapa.containsKey(pregunta)){
-                System.out.println(PreguntaOpcionesMapa.get(pregunta));
+                //System.out.println(PreguntaOpcionesMapa.get(pregunta));
                 opc=true;
             } 
 
@@ -74,14 +74,13 @@ public class Crear_Formulario_Codigo {
     
     
     
-    public Boolean Insert_Formulario(String nombre, int cant){//hace un insert en la tabla zona de seguridad
+    public Boolean Insert_Formulario(String nombre){//hace un insert en la tabla zona de seguridad
         try{
             Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");            
-            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Formulario ( Nombre, Respuesta) VALUES (?,?)");
+            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Formulario (Nombre) VALUES (?)");
 
             
             sele.setString(1,nombre);
-            sele.setInt(2,cant);
             
 
             sele.executeUpdate();

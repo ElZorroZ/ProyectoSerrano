@@ -26,7 +26,7 @@ import sap.successfactors.ConexionBDD;
 public class Registrarse extends javax.swing.JFrame {
     private File archivoSeleccionado;
     private JTextField txtRutaArchivo;
-    ConexionBDD conexion=new ConexionBDD();
+    Ver_Formulario_Codigo conexion=new Ver_Formulario_Codigo();
     /**
      * Creates new form Registrarse
      */
@@ -51,23 +51,14 @@ public class Registrarse extends javax.swing.JFrame {
         txtf_Nombre = new javax.swing.JTextField();
         txtf_Apellido = new javax.swing.JTextField();
         txtf_Contraseña = new javax.swing.JTextField();
-        btn_Seleccionar = new javax.swing.JButton();
         btn_Subir = new javax.swing.JButton();
+        txtf_Mail = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txtf_Nombre.setText("jTextField1");
-
-        txtf_Apellido.setText("jTextField1");
-
-        txtf_Contraseña.setText("jTextField1");
-
-        btn_Seleccionar.setText("Seleccionar archivo");
-        btn_Seleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_SeleccionarActionPerformed(evt);
-            }
-        });
 
         btn_Subir.setText("Subir");
         btn_Subir.addActionListener(new java.awt.event.ActionListener() {
@@ -76,35 +67,55 @@ public class Registrarse extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("Apellido");
+
+        jLabel3.setText("Mail");
+
+        jLabel4.setText("Contraseña");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Seleccionar)
-                    .addComponent(txtf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtf_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(304, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(333, Short.MAX_VALUE)
                 .addComponent(btn_Subir)
                 .addGap(125, 125, 125))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(txtf_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                    .addComponent(txtf_Mail)
+                    .addComponent(txtf_Apellido)
+                    .addComponent(txtf_Nombre))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtf_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtf_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(txtf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(btn_Seleccionar)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(5, 5, 5)
+                .addComponent(txtf_Mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtf_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(btn_Subir)
                 .addContainerGap(46, Short.MAX_VALUE))
         );
@@ -127,51 +138,6 @@ public class Registrarse extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SeleccionarActionPerformed
-/*
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int resultado = fileChooser.showOpenDialog(null);
-
-        if (resultado == JFileChooser.APPROVE_OPTION) {
-            archivoSeleccionado = fileChooser.getSelectedFile();
-            if (archivoSeleccionado == null) {
-    System.out.println("Error: archivoSeleccionado es null al intentar subir.");
-} else {
-    System.out.println("Archivo listo para subir: " + archivoSeleccionado.getAbsolutePath());
-}
-
-            // Verifica que no sea nulo y que el archivo tenga extensión PDF
-            if (archivoSeleccionado != null && archivoSeleccionado.getName().endsWith(".pdf")) {
-                if (archivoSeleccionado == null) {
-    System.out.println("Error: archivoSeleccionado es null al intentar subir.");
-} else {
-    System.out.println("Archivo listo para subir: " + archivoSeleccionado.getAbsolutePath());
-}
-                if (txtRutaArchivo != null) {
-    txtRutaArchivo.setText(archivoSeleccionado.getAbsolutePath());
-} else {
-    System.out.println("txtRutaArchivo es null. Asegúrate de inicializarlo correctamente.");
-}
-
-                txtRutaArchivo.setText(archivoSeleccionado.getAbsolutePath());
-                if (archivoSeleccionado == null) {
-    System.out.println("Error: archivoSeleccionado es null al intentar subir.");
-} else {
-    System.out.println("Archivo listo para subir: " + archivoSeleccionado.getAbsolutePath());
-}
-            } else {
-                JOptionPane.showMessageDialog(null, "Seleccione un archivo PDF válido.");
-                archivoSeleccionado = null; // Resetea en caso de archivo inválido
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se seleccionó ningún archivo.");
-            archivoSeleccionado = null; // Resetea en caso de cancelar
-        }
-
-          */  
-    }//GEN-LAST:event_btn_SeleccionarActionPerformed
-
     private void btn_SubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SubirActionPerformed
         /*
         if (archivoSeleccionado != null) {
@@ -180,6 +146,18 @@ public class Registrarse extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No hay archivo seleccionado para subir.");
         }
     */
+        String nombre=txtf_Nombre.getText();
+        String apellido=txtf_Apellido.getText();
+        String mail=txtf_Mail.getText();
+        String contraseña=txtf_Contraseña.getText();
+        conexion.Insert_Usuario(nombre,apellido,mail,contraseña);
+        
+        int id=conexion.Select_IdUsuario(mail);
+        Ver_Formulario  vF = new Ver_Formulario(id);
+        this.setVisible(false);
+        vF.setVisible(true);
+        vF.setSize(930,530);
+        vF.setLocationRelativeTo(null);
     }//GEN-LAST:event_btn_SubirActionPerformed
 
     
@@ -219,11 +197,15 @@ public class Registrarse extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Seleccionar;
     private javax.swing.JButton btn_Subir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtf_Apellido;
     private javax.swing.JTextField txtf_Contraseña;
+    private javax.swing.JTextField txtf_Mail;
     private javax.swing.JTextField txtf_Nombre;
     // End of variables declaration//GEN-END:variables
 }

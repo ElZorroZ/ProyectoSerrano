@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sap.successfactors.Gerente;
+package sap.successfactors.Candidato;
 
+import sap.successfactors.Gerente.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,19 +31,19 @@ public class Ver_Formulario_Codigo {
         
     }
     
-    public void mostrar_Pantalla_Formulario_Seleccionado(int id){
+    public void mostrar_Pantalla_Formulario_Seleccionado(int id, int idUsuario){
         int Id=id;
         Ver_Formulario_Seleccionado formu=new Ver_Formulario_Seleccionado(Id);
-        formu.mostrar_id(Id);
+        formu.mostrar_id(Id, idUsuario);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
         
     }
     
-    public void mostrar_Pantalla_Pregunta(int id,String pregunta){
+    public void mostrar_Pantalla_Pregunta(int id,String pregunta, int idUsuario, int idFormulario){
         int Id=id;
         int tienePregunta=Selec_cant_Pregunta(id);
-        Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta);
+        Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta, idUsuario, idFormulario);
         //Corregir --- formu.mostrar_id(Id);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
@@ -165,7 +166,6 @@ public class Ver_Formulario_Codigo {
         try{
             ArrayList<String> array = new ArrayList<String>();
             Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");
-            System.out.println(id);
             String str="SELECT Opcion FROM Opciones Where IdPregunta = ?;";
             PreparedStatement  query=miConexion.prepareStatement(str);
             query.setInt(1,id);
@@ -174,7 +174,6 @@ public class Ver_Formulario_Codigo {
             
             while(result.next()){
                 String Item=result.getString("Opcion") ;
-                System.out.println(Item);
                 array.add(Item);
 
 
@@ -182,7 +181,6 @@ public class Ver_Formulario_Codigo {
             }
             
             miConexion.close();
-            System.out.println(array);
             return array;
         }catch(Exception e){
             System.out.println("No funca");
@@ -192,5 +190,88 @@ public class Ver_Formulario_Codigo {
             return null;    
         }
         
+    }
+    
+    public Boolean Insert_Usuario(String nombre, String apellido, String mail, String contraseña){//hace un insert en la tabla zona de seguridad
+        try{
+            Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");            
+            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Usuario (Nombre, Apellido, Email, Contrasenia, IdEstado) VALUES (?,?,?,?,?)");
+
+            
+            sele.setString(1,nombre);
+            sele.setString(2,apellido);
+            sele.setString(3,mail);
+            sele.setString(4,contraseña);
+            sele.setInt(5,3);
+            
+
+            sele.executeUpdate();
+
+            miConexion.close();
+            return(true);
+
+        }catch(Exception e){
+            System.out.println("No funca");
+
+            e.printStackTrace();
+            return(false);
+
+        }
+    }
+    public int Select_IdUsuario(String Email){//Seleciona todas las zonas de seguridad
+        int Item=0;
+        try{
+            
+            Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");
+            String str="SELECT Id FROM Usuario Where Email = ?;";
+            PreparedStatement  query=miConexion.prepareStatement(str);
+            query.setString(1,Email);
+            ResultSet result = query.executeQuery();
+            
+            
+            while(result.next()){
+                Item=result.getInt("Id") ;
+
+
+
+            }
+            
+            miConexion.close();
+            return Item;
+        }catch(Exception e){
+            System.out.println("No funca");
+            
+            e.printStackTrace();
+            
+            return 0;    
+        }
+        
+    }
+    public Boolean Insert_Respuesta(int IdFormulario,int IdUsuario, String RespuestaUsuario, int idPregunta){//hace un insert en la tabla zona de seguridad
+        /*
+        try{
+            Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");            
+            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Respuestas (IdFormulario, IdUsuario,RespuestasUsuario) VALUES (?,?,?)");
+
+            
+            sele.setInt(1,IdFormulario);
+            sele.setInt(2,IdUsuario);
+            sele.setString(3,RespuestaUsuario);
+            
+            
+
+            sele.executeUpdate();
+
+            miConexion.close();
+            return(true);
+
+        }catch(Exception e){
+            System.out.println("No funca");
+
+            e.printStackTrace();
+            return(false);
+
+        }*/
+        return false;
     }
 }

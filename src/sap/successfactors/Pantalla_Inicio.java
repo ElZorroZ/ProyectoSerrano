@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package sap.successfactors;
+import sap.successfactors.Candidato.Ver_Formulario;
+import sap.successfactors.Candidato.Ver_Formulario_Codigo;
 import sap.successfactors.Gerente.Pantalla_Gerente;
 import sap.successfactors.RRHH.Pantalla_RRHH;
 import sap.successfactors.Candidato.Registrarse;
@@ -142,6 +144,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_RegistrarUsuarioActionPerformed
 
     private void btn_IniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_IniciarSesionActionPerformed
+        String mail = JTextField_Usuario.getText();
         InicioSesion objetoSesion = new InicioSesion(); 
         try { 
             int idEstado = objetoSesion.IngresarSesion(JTextField_Usuario, JTextField_Contra); 
@@ -149,6 +152,8 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                 abrirVentana1(); 
             } else if (idEstado == 2) { 
                 abrirVentana2(); 
+            } else if (idEstado == 3) { 
+                abrirVentana3(mail); 
             } else { 
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE); } 
             } catch (Exception e) { 
@@ -168,6 +173,17 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         vR.setVisible(true);
         vR.setSize(930,530);
         vR.setLocationRelativeTo(null);
+    }
+    
+    private void abrirVentana3(String mail) { 
+        Ver_Formulario_Codigo codigo=new Ver_Formulario_Codigo();
+        int id=codigo.Select_IdUsuario(mail);
+        
+        Ver_Formulario  vF = new Ver_Formulario(id);
+        this.setVisible(false);
+        vF.setVisible(true);
+        vF.setSize(930,530);
+        vF.setLocationRelativeTo(null);
     }
     /**
      * @param args the command line arguments

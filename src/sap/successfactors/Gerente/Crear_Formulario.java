@@ -21,7 +21,6 @@ public class Crear_Formulario extends javax.swing.JFrame {
     Map<String, Queue<String> > PreguntaOpcionesMapa=new HashMap<>();
     Queue<String> Preguntas=new LinkedList<>();
     String pregunta;
-    int cant;
     /**
      * Creates new form Crear_Formulario
      */
@@ -168,6 +167,11 @@ public class Crear_Formulario extends javax.swing.JFrame {
         jLabel2.setText("Nombre del formulario");
 
         btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,9 +186,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(260, 260, 260)
                                 .addComponent(btn_crearFormulario))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78))))
+                            .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btn_volver))
@@ -228,16 +230,15 @@ public class Crear_Formulario extends javax.swing.JFrame {
 
     private void btn_agregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarPreguntaActionPerformed
         Preguntas.offer(txtf_pregunta.getText());
-        System.out.println(Preguntas);
+        //System.out.println(Preguntas);
         txtf_pregunta.setText("");
-        cant++;
     }//GEN-LAST:event_btn_agregarPreguntaActionPerformed
 
     private void btn_agregarOpc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarOpc1ActionPerformed
         
         OpcionesLista.add(txtf_opcion.getText());
-        System.out.println("-----");
-        System.out.println(OpcionesLista);
+        //System.out.println("-----");
+        //System.out.println(OpcionesLista);
         txtf_opcion.setText("");
 
     }//GEN-LAST:event_btn_agregarOpc1ActionPerformed
@@ -248,22 +249,28 @@ public class Crear_Formulario extends javax.swing.JFrame {
         Queue<String> copiaOpcionesLista = new LinkedList<>(OpcionesLista);
         
         PreguntaOpcionesMapa.put(pregunta,copiaOpcionesLista);
-        System.out.println(PreguntaOpcionesMapa);
+        //System.out.println(PreguntaOpcionesMapa);
         Preguntas.offer(pregunta);
         txtf_opcion.setText("");
         txtf_pregunta.setText("");
-        cant++;
         OpcionesLista.clear();
 
-        System.out.println(OpcionesLista);
+        //System.out.println(OpcionesLista);
     }//GEN-LAST:event_btn_aceptarOpcionesActionPerformed
 
     private void btn_crearFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearFormularioActionPerformed
-        System.out.println(cant);
+        //System.out.println(cant);
         String nombre = txtf_Formulario.getText();
-        System.out.println(PreguntaOpcionesMapa);
-        codigo.Agregar_Formulario(nombre, cant, OpcionesLista, PreguntaOpcionesMapa, Preguntas);
+        //System.out.println(PreguntaOpcionesMapa);
+        codigo.Agregar_Formulario(nombre, OpcionesLista, PreguntaOpcionesMapa, Preguntas);
     }//GEN-LAST:event_btn_crearFormularioActionPerformed
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        Pantalla_Gerente panta= new Pantalla_Gerente();
+        this.setVisible(false);
+        panta.setVisible(true);
+        panta.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btn_volverActionPerformed
 
     /**
      * @param args the command line arguments

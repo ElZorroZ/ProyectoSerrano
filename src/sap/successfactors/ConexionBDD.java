@@ -44,6 +44,7 @@ public class ConexionBDD {
             System.out.println("No se pudo conectar a la base de datos.");
             e.printStackTrace();
         }
+        
         return miConexion; // Retorna la conexión (puede ser nula si hubo un error)
     }
     public void cerrarConexion() {
