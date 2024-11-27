@@ -83,27 +83,35 @@ public class Ver_Candidatos {
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaCandidato.setRowSorter(OrdenarTabla);
 
-        modelo.addColumn("IDCandidato");
+        // Agregar columnas correspondientes al modelo de la tabla
         modelo.addColumn("IDFormulario");
+        modelo.addColumn("Pregunta");
         modelo.addColumn("Respuesta");
 
         paramTablaCandidato.setModel(modelo);
 
-        // La consulta SQL ahora incluye el FROM Respuestas
-        String sql = "SELECT IdUsuario, IdFormulario, RespuestasUsuario FROM Respuestas WHERE IdUsuario = ?";
-        String[] datos = new String[3];
+        // Consulta SQL corregida
+        String sql = "SELECT r.IdFormulario, p.Pregunta, r.RespuestasUsuario " +
+                     "FROM Respuestas r " +
+                     "INNER JOIN Preguntas p ON r.IdPregunta = p.Id " +
+                     "WHERE r.IdUsuario = ?";
 
         try (PreparedStatement ps = objetoConexion.Conectar().prepareStatement(sql)) {
-            ps.setString(1, candidatoID); // Pasamos el ID como parámetro
+            ps.setString(1, candidatoID); // Establecer el parámetro del ID del usuario
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
-                datos[0] = rs.getString("IdUsuario");
-                datos[1] = rs.getString("IdFormulario");
-                datos[2] = rs.getString("RespuestasUsuario");
+            // Crear un arreglo de 3 posiciones para cada fila
+            String[] datos = new String[3];
 
-                modelo.addRow(datos);
+            while (rs.next()) {
+                datos[0] = rs.getString("IdFormulario");  // ID del formulario
+                datos[1] = rs.getString("Pregunta");      // Texto de la pregunta
+                datos[2] = rs.getString("RespuestasUsuario"); // Respuesta del usuario
+
+                modelo.addRow(datos); // Agregar la fila al modelo
             }
+
+            // Establecer el modelo actualizado en la tabla
             paramTablaCandidato.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al mostrar candidato: " + e.toString());
@@ -111,6 +119,7 @@ public class Ver_Candidatos {
             objetoConexion.cerrarConexion();
         }
     }
+
     public void PreseleccionarCandidato(JTextField paramID) {
         setID(paramID.getText());
     
