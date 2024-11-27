@@ -26,7 +26,7 @@ import sap.successfactors.ConexionBDD;
 public class Registrarse extends javax.swing.JFrame {
     private File archivoSeleccionado;
     private JTextField txtRutaArchivo;
-    Ver_Formulario_Codigo conexion=new Ver_Formulario_Codigo();
+    Realizar_Formulario_Codigo conexion=new Realizar_Formulario_Codigo();
     /**
      * Creates new form Registrarse
      */
@@ -153,7 +153,7 @@ public class Registrarse extends javax.swing.JFrame {
         conexion.Insert_Usuario(nombre,apellido,mail,contraseña);
         
         int id=conexion.Select_IdUsuario(mail);
-        Ver_Formulario  vF = new Ver_Formulario(id);
+        Realizar_Formulario  vF = new Realizar_Formulario(id);
         this.setVisible(false);
         vF.setVisible(true);
         vF.setSize(930,530);

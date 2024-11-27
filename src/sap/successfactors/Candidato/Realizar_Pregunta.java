@@ -16,8 +16,8 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author PC
  */
-public class Ver_Pregunta extends javax.swing.JFrame {
-    Ver_Formulario_Codigo codigo=new Ver_Formulario_Codigo();
+public class Realizar_Pregunta extends javax.swing.JFrame {
+    Realizar_Formulario_Codigo codigo=new Realizar_Formulario_Codigo();
     ArrayList array = new ArrayList<>();
     int cmboxOtxtf;
     int ID;
@@ -30,7 +30,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
     /**
      * Creates new form Ver_Pregunta
      */
-    public Ver_Pregunta(int id, String pregunta, int tienePregunta, int idUsuario, int Formulario) {
+    public Realizar_Pregunta(int id, String pregunta, int tienePregunta, int idUsuario, int Formulario) {
         initComponents();
         Pregunta=pregunta;
         IDFormulario=Formulario;

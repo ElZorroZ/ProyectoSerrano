@@ -19,7 +19,7 @@ import javax.swing.DefaultListModel;
  *
  * @author PC
  */
-public class Ver_Formulario_Codigo {
+public class Realizar_Formulario_Codigo {
     public DefaultListModel mostrar(DefaultListModel modelo){
         modelo.removeAllElements();
         ArrayList array=Select_Formularios();
@@ -33,7 +33,7 @@ public class Ver_Formulario_Codigo {
     
     public void mostrar_Pantalla_Formulario_Seleccionado(int id, int idUsuario){
         int Id=id;
-        Ver_Formulario_Seleccionado formu=new Ver_Formulario_Seleccionado(Id);
+        Realizar_Formulario_Seleccionado formu=new Realizar_Formulario_Seleccionado(Id);
         formu.mostrar_id(Id, idUsuario);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
@@ -43,7 +43,7 @@ public class Ver_Formulario_Codigo {
     public void mostrar_Pantalla_Pregunta(int id,String pregunta, int idUsuario, int idFormulario){
         int Id=id;
         int tienePregunta=Selec_cant_Pregunta(id);
-        Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta, idUsuario, idFormulario);
+        Realizar_Pregunta formu=new Realizar_Pregunta(Id, pregunta, tienePregunta, idUsuario, idFormulario);
         //Corregir --- formu.mostrar_id(Id);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
