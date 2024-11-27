@@ -15,9 +15,9 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author PC
  */
-public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
+public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
     DefaultListModel modelo = new DefaultListModel();
-    Ver_Formulario_Codigo vFc=new Ver_Formulario_Codigo();
+    Realizar_Formulario_Codigo vFc=new Realizar_Formulario_Codigo();
     int Id;
     int idUsuario;
     /**
@@ -28,7 +28,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
         idUsuario=idusu;
 
     }
-    public Ver_Formulario_Seleccionado(int Id) {
+    public Realizar_Formulario_Seleccionado(int Id) {
         initComponents();
         
         this.setResizable(false);
@@ -151,7 +151,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
-        Ver_Formulario  vF = new Ver_Formulario(Id);
+        Realizar_Formulario  vF = new Realizar_Formulario(Id);
         this.setVisible(false);
         vF.setVisible(true);
         vF.setSize(930,530);
@@ -159,7 +159,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_volverActionPerformed
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
-        Ver_Formulario  vF = new Ver_Formulario(Id);
+        Realizar_Formulario  vF = new Realizar_Formulario(Id);
         this.setVisible(false);
         vF.setVisible(true);
         vF.setSize(930,530);

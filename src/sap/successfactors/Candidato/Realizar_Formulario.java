@@ -15,14 +15,14 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author PC
  */
-public class Ver_Formulario extends javax.swing.JFrame {
+public class Realizar_Formulario extends javax.swing.JFrame {
     DefaultListModel modelo = new DefaultListModel();
-    Ver_Formulario_Codigo vFc=new Ver_Formulario_Codigo();
+    Realizar_Formulario_Codigo vFc=new Realizar_Formulario_Codigo();
     int idUsuario;
     /**
      * Creates new form Ver_Formulario
      */
-    public Ver_Formulario(int id_Usuario) {
+    public Realizar_Formulario(int id_Usuario) {
         idUsuario=id_Usuario;
         initComponents();
  

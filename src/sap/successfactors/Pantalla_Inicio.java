@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package sap.successfactors;
-import sap.successfactors.Candidato.Ver_Formulario;
-import sap.successfactors.Candidato.Ver_Formulario_Codigo;
+import sap.successfactors.Candidato.Realizar_Formulario;
+import sap.successfactors.Candidato.Realizar_Formulario_Codigo;
 import sap.successfactors.Gerente.Pantalla_Gerente;
 import sap.successfactors.RRHH.Pantalla_RRHH;
 import sap.successfactors.Candidato.Registrarse;
@@ -176,10 +176,10 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
     }
     
     private void abrirVentana3(String mail) { 
-        Ver_Formulario_Codigo codigo=new Ver_Formulario_Codigo();
+        Realizar_Formulario_Codigo codigo=new Realizar_Formulario_Codigo();
         int id=codigo.Select_IdUsuario(mail);
         
-        Ver_Formulario  vF = new Ver_Formulario(id);
+        Realizar_Formulario  vF = new Realizar_Formulario(id);
         this.setVisible(false);
         vF.setVisible(true);
         vF.setSize(930,530);
