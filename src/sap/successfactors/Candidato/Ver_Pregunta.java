@@ -46,9 +46,8 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         
         lbl_Pregunta.setText(pregunta);
         if(tienePregunta==1){
-            System.out.println("Tamaño del array: " + array.size());
             for (int i = 0; i < array.size(); i++) {
-                System.out.println("Elemento " + i + ": " + array.get(i));  // Verificar los elementos
+                
             }
             for (int i=0; i<array.size(); i++){
                 ComboBox_Respuesta.addItem(array.get(i).toString());

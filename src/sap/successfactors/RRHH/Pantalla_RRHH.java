@@ -6,6 +6,7 @@
 package sap.successfactors.RRHH;
 import sap.successfactors.RRHH.Preseleccionar_Candidato;
 import sap.successfactors.Pantalla_Inicio;
+import sap.successfactors.Gerente.Ver_Formulario;
 
 /**
  *
@@ -102,7 +103,6 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
 
     private void btn_FormulariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FormulariosActionPerformed
         Ver_Formulario ver=new Ver_Formulario();
-        this.setVisible(false);
         ver.setLocationRelativeTo(null);
         ver.setVisible(true);
     }//GEN-LAST:event_btn_FormulariosActionPerformed

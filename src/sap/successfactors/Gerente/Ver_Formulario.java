@@ -33,7 +33,6 @@ public class Ver_Formulario extends javax.swing.JFrame {
                     String itemSeleccionado = list_Formularios.getSelectedValue();
                     String[] separado=itemSeleccionado.split("-");
                     int id=Integer.parseInt(separado[0]);
-                    System.out.println(id);
                     Esconder(id);
                     
                     
@@ -128,11 +127,9 @@ public class Ver_Formulario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Pantalla_Gerente  vG = new Pantalla_Gerente();
+        
         this.setVisible(false);
-        vG.setVisible(true);
-        vG.setSize(930,530);
-        vG.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

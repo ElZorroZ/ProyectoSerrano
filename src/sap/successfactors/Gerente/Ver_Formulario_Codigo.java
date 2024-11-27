@@ -60,7 +60,7 @@ public class Ver_Formulario_Codigo {
         
     }
     
-    public ArrayList mostrarOpciones(int id){//Mete todas las zonas de seguridad en una lista para mostrarla en otra pantalla
+    public ArrayList mostrarOpciones(int id){
         ArrayList array=Select_Opciones(id);
         /*String[] vector=new String[array.size()];
         for (int i=0; i<array.size(); i++){
@@ -165,7 +165,6 @@ public class Ver_Formulario_Codigo {
         try{
             ArrayList<String> array = new ArrayList<String>();
             Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");
-            System.out.println(id);
             String str="SELECT Opcion FROM Opciones Where IdPregunta = ?;";
             PreparedStatement  query=miConexion.prepareStatement(str);
             query.setInt(1,id);
@@ -174,7 +173,6 @@ public class Ver_Formulario_Codigo {
             
             while(result.next()){
                 String Item=result.getString("Opcion") ;
-                System.out.println(Item);
                 array.add(Item);
 
 
@@ -182,7 +180,6 @@ public class Ver_Formulario_Codigo {
             }
             
             miConexion.close();
-            System.out.println(array);
             return array;
         }catch(Exception e){
             System.out.println("No funca");

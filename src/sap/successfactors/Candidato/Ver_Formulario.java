@@ -36,7 +36,6 @@ public class Ver_Formulario extends javax.swing.JFrame {
                     String itemSeleccionado = list_Formularios.getSelectedValue();
                     String[] separado=itemSeleccionado.split("-");
                     int id=Integer.parseInt(separado[0]);
-                    System.out.println(id);
                     Esconder(id, idUsuario);
                     
                     

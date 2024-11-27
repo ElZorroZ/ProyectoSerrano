@@ -120,7 +120,6 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
 
     private void Btn_VerFormulariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VerFormulariosActionPerformed
         Ver_Formulario ver=new Ver_Formulario();
-        this.setVisible(false);
         ver.setLocationRelativeTo(null);
         ver.setVisible(true);
     }//GEN-LAST:event_Btn_VerFormulariosActionPerformed

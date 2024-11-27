@@ -32,7 +32,6 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         
         Boolean ilo=Ocultar();
         
-        System.out.println(tienePregunta);
         
         lbl_Pregunta.setText(pregunta);
         if(tienePregunta==1){
