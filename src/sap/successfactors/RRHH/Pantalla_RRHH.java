@@ -29,13 +29,18 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_Formularios = new javax.swing.JButton();
         Btn_Preseleccionar = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Revisar formulario");
+        btn_Formularios.setText("Revisar formulario");
+        btn_Formularios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_FormulariosActionPerformed(evt);
+            }
+        });
 
         Btn_Preseleccionar.setText("Preseleccionar candidatos");
         Btn_Preseleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +64,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
                 .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Btn_Preseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_Formularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btn_volver)
@@ -70,7 +75,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
+                .addComponent(btn_Formularios)
                 .addGap(33, 33, 33)
                 .addComponent(Btn_Preseleccionar)
                 .addContainerGap(171, Short.MAX_VALUE))
@@ -94,6 +99,13 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         vM.setLocationRelativeTo(null);
         vM.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void btn_FormulariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_FormulariosActionPerformed
+        Ver_Formulario ver=new Ver_Formulario();
+        this.setVisible(false);
+        ver.setLocationRelativeTo(null);
+        ver.setVisible(true);
+    }//GEN-LAST:event_btn_FormulariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,7 +144,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Preseleccionar;
+    private javax.swing.JButton btn_Formularios;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

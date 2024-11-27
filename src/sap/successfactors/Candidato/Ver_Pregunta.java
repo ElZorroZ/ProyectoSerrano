@@ -76,6 +76,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         txtf_Respuesta = new javax.swing.JTextField();
         ComboBox_Respuesta = new javax.swing.JComboBox<>();
         btn_Enviar = new javax.swing.JButton();
+        btn_Volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,27 +101,42 @@ public class Ver_Pregunta extends javax.swing.JFrame {
             }
         });
 
+        btn_Volver.setText("Volver");
+        btn_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_Pregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                            .addComponent(txtf_Respuesta)
-                            .addComponent(ComboBox_Respuesta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(btn_Enviar)
-                        .addGap(43, 43, 43))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 79, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lbl_Pregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                                    .addComponent(txtf_Respuesta)
+                                    .addComponent(ComboBox_Respuesta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(89, 89, 89))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btn_Enviar)
+                                .addGap(43, 43, 43))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_Volver)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(btn_Volver)
+                .addGap(2, 2, 2)
                 .addComponent(lbl_Pregunta)
                 .addGap(48, 48, 48)
                 .addComponent(txtf_Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,12 +181,22 @@ public class Ver_Pregunta extends javax.swing.JFrame {
     }//GEN-LAST:event_txtf_RespuestaActionPerformed
 
     private void btn_EnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EnviarActionPerformed
+        String seleccionado="";
         if(cmboxOtxtf==1){
-            String seleccionado = ComboBox_Respuesta.getSelectedItem().toString();
-            codigo.Insert_Respuesta(IDFormulario,IDUsuario,Pregunta,ID);
+            seleccionado = ComboBox_Respuesta.getSelectedItem().toString();
+            
 
+        }else if(cmboxOtxtf==0){
+            seleccionado = txtf_Respuesta.getText();
         }
+        
+        codigo.Insert_Respuesta(IDFormulario,IDUsuario,seleccionado,ID);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_EnviarActionPerformed
+
+    private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_VolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +227,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBox_Respuesta;
     private javax.swing.JButton btn_Enviar;
+    private javax.swing.JButton btn_Volver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_Pregunta;

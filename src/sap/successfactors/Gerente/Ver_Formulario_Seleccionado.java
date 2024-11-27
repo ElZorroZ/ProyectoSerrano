@@ -23,8 +23,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
      */
     public void mostrar_id(int id){
         Id=id;
-        System.out.println(Id);
-        System.out.println("---");
+
     }
     public Ver_Formulario_Seleccionado(int Id) {
         initComponents();
@@ -42,16 +41,16 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
                     String[] separado=itemSeleccionado.split("-");
                     int id=Integer.parseInt(separado[0]);
                     String pregunta=separado[1];
-                    Esconder(id, pregunta);
+                    Esconder(id, pregunta, Id);
                     
                     
                 }
             }
         });
     }
-    private void Esconder(int id, String pregunta){
+    private void Esconder(int id, String pregunta, int Id){
         this.setVisible(false);
-        vFc.mostrar_Pantalla_Pregunta(id, pregunta);
+        vFc.mostrar_Pantalla_Pregunta(id, pregunta, Id);
     }
 
     /**
@@ -66,6 +65,8 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lista_Preguntas = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,21 +77,42 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lista_Preguntas);
 
+        jLabel1.setText("Preguntas");
+
+        jButton1.setText("Volver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 205, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,6 +133,13 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Ver_Formulario  vF = new Ver_Formulario();
+        this.setVisible(false);
+        vF.setVisible(true);
+        vF.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -127,6 +156,8 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista_Preguntas;

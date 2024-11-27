@@ -17,13 +17,14 @@ import javax.swing.event.ListSelectionListener;
  */
 public class Ver_Pregunta extends javax.swing.JFrame {
     ArrayList array = new ArrayList<>();
-    
+    int ID_Formulario;
     
     
     /**
      * Creates new form Ver_Pregunta
      */
-    public Ver_Pregunta(int id, String pregunta, int tienePregunta) {
+    public Ver_Pregunta(int id, String pregunta, int tienePregunta, int ID) {
+        ID_Formulario=ID;
         initComponents();
         Ver_Formulario_Codigo codigo=new Ver_Formulario_Codigo();
         
@@ -62,6 +63,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         lbl_Pregunta = new javax.swing.JLabel();
         txtf_Respuesta = new javax.swing.JTextField();
         ComboBox_Respuest = new javax.swing.JComboBox<>();
+        btn_Volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +81,13 @@ public class Ver_Pregunta extends javax.swing.JFrame {
             }
         });
 
+        btn_Volver.setText("Volver");
+        btn_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_VolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -90,11 +99,17 @@ public class Ver_Pregunta extends javax.swing.JFrame {
                     .addComponent(txtf_Respuesta)
                     .addComponent(ComboBox_Respuest, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(89, 89, 89))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_Volver)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
+                .addComponent(btn_Volver)
+                .addGap(2, 2, 2)
                 .addComponent(lbl_Pregunta)
                 .addGap(48, 48, 48)
                 .addComponent(txtf_Respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -136,6 +151,13 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtf_RespuestaActionPerformed
 
+    private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
+        Ver_Formulario_Seleccionado  vFs = new Ver_Formulario_Seleccionado(ID_Formulario);
+        this.setVisible(false);
+        vFs.setVisible(true);
+        vFs.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btn_VolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -164,6 +186,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBox_Respuest;
+    private javax.swing.JButton btn_Volver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lbl_Pregunta;

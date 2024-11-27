@@ -39,10 +39,10 @@ public class Ver_Formulario_Codigo {
         
     }
     
-    public void mostrar_Pantalla_Pregunta(int id,String pregunta){
+    public void mostrar_Pantalla_Pregunta(int id,String pregunta, int ID){
         int Id=id;
         int tienePregunta=Selec_cant_Pregunta(id);
-        Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta);
+        Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta, ID);
         //Corregir --- formu.mostrar_id(Id);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);

@@ -248,16 +248,16 @@ public class Ver_Formulario_Codigo {
         
     }
     public Boolean Insert_Respuesta(int IdFormulario,int IdUsuario, String RespuestaUsuario, int idPregunta){//hace un insert en la tabla zona de seguridad
-        /*
+        
         try{
             Connection miConexion=DriverManager.getConnection("jdbc:mysql://uyhamlklqd4j3ukm:DfseeRtbCM0I8nRBGbLS@bfg6lbkde7ykp82fwejq-mysql.services.clever-cloud.com:3306/bfg6lbkde7ykp82fwejq","uyhamlklqd4j3ukm","DfseeRtbCM0I8nRBGbLS");            
-            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Respuestas (IdFormulario, IdUsuario,RespuestasUsuario) VALUES (?,?,?)");
+            PreparedStatement sele= miConexion.prepareStatement("INSERT INTO Respuestas (IdFormulario, IdUsuario,RespuestasUsuario, IdPregunta) VALUES (?,?,?,?)");
 
             
             sele.setInt(1,IdFormulario);
             sele.setInt(2,IdUsuario);
             sele.setString(3,RespuestaUsuario);
-            
+            sele.setInt(4,idPregunta);
             
 
             sele.executeUpdate();
@@ -271,7 +271,6 @@ public class Ver_Formulario_Codigo {
             e.printStackTrace();
             return(false);
 
-        }*/
-        return false;
+        }
     }
 }
