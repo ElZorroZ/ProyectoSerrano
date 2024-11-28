@@ -182,7 +182,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         Realizar_Formulario  vF = new Realizar_Formulario(id);
         this.setVisible(false);
         vF.setVisible(true);
-        vF.setSize(930,530);
         vF.setLocationRelativeTo(null);
     }
     /**

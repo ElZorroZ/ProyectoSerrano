@@ -156,7 +156,6 @@ public class Registrarse extends javax.swing.JFrame {
         Realizar_Formulario  vF = new Realizar_Formulario(id);
         this.setVisible(false);
         vF.setVisible(true);
-        vF.setSize(930,530);
         vF.setLocationRelativeTo(null);
     }//GEN-LAST:event_btn_SubirActionPerformed
 
