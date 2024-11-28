@@ -266,7 +266,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_crearFormularioActionPerformed
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
-        Pantalla_Gerente panta= new Pantalla_Gerente();
+        Pantalla_JefeRRHH panta= new Pantalla_JefeRRHH();
         this.setVisible(false);
         panta.setVisible(true);
         panta.setLocationRelativeTo(null);

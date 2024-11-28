@@ -182,7 +182,7 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_EliminarActionPerformed
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
-        Pantalla_Gerente vG = new Pantalla_Gerente();
+        Pantalla_JefeRRHH vG = new Pantalla_JefeRRHH();
         this.setVisible(false);
         vG.setSize(600,500);
         vG.setLocationRelativeTo(null);

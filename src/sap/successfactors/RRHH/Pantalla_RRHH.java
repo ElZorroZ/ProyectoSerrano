@@ -33,6 +33,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         btn_Formularios = new javax.swing.JButton();
         Btn_Preseleccionar = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,29 +58,35 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Ver entrevistas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Btn_Preseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Formularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(115, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Btn_Preseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Formularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btn_volver)
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(btn_Formularios)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(Btn_Preseleccionar)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,5 +152,6 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
     private javax.swing.JButton Btn_Preseleccionar;
     private javax.swing.JButton btn_Formularios;
     private javax.swing.JButton btn_volver;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,12 +11,12 @@ import sap.successfactors.Gerente.Crear_Formulario;
  *
  * @author PC
  */
-public class Pantalla_Gerente extends javax.swing.JFrame {
+public class Pantalla_JefeRRHH extends javax.swing.JFrame {
 
     /**
      * Creates new form Pantalla_Gerente
      */
-    public Pantalla_Gerente() {
+    public Pantalla_JefeRRHH() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
             }
         });
 
-        Btn_SeleccionarCandidatos.setText("Seleccionar candidatos");
+        Btn_SeleccionarCandidatos.setText("Entrevistar candidatos");
         Btn_SeleccionarCandidatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SeleccionarCandidatosActionPerformed(evt);
@@ -170,20 +170,21 @@ public class Pantalla_Gerente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_JefeRRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_JefeRRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_JefeRRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Gerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_JefeRRHH.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pantalla_Gerente().setVisible(true);
+                new Pantalla_JefeRRHH().setVisible(true);
             }
         });
     }

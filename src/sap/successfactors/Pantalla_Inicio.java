@@ -6,7 +6,7 @@
 package sap.successfactors;
 import sap.successfactors.Candidato.Realizar_Formulario;
 import sap.successfactors.Candidato.Realizar_Formulario_Codigo;
-import sap.successfactors.Gerente.Pantalla_Gerente;
+import sap.successfactors.Gerente.Pantalla_JefeRRHH;
 import sap.successfactors.RRHH.Pantalla_RRHH;
 import sap.successfactors.Candidato.Registrarse;
 import sap.successfactors.Gerente.Crear_Formulario;
@@ -161,7 +161,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
             }    
     }//GEN-LAST:event_btn_IniciarSesionActionPerformed
     private void abrirVentana1() { 
-        Pantalla_Gerente  vG = new Pantalla_Gerente();
+        Pantalla_JefeRRHH  vG = new Pantalla_JefeRRHH();
         this.setVisible(false);
         vG.setVisible(true);
         vG.setSize(930,530);
