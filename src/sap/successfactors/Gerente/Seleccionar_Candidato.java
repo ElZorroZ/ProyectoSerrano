@@ -155,7 +155,6 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
         // Abre la nueva ventana con los detalles del candidato
         Revisar_Datos_Candidato_Preseleccionado vR = new Revisar_Datos_Candidato_Preseleccionado(candidatoID);
         this.setVisible(false);
-        vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
     }//GEN-LAST:event_Btn_RevisarActionPerformed

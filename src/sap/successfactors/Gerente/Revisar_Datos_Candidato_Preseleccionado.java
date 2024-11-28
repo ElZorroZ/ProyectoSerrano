@@ -94,7 +94,6 @@ public class Revisar_Datos_Candidato_Preseleccionado extends javax.swing.JFrame 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         Seleccionar_Candidato vP = new Seleccionar_Candidato();
         this.setVisible(false);
-        vP.setSize(600,500);
         vP.setLocationRelativeTo(null);
         vP.setVisible(true);
         // TODO add your handling code here:
