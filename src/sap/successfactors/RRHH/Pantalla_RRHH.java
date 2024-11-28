@@ -88,7 +88,6 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
     private void Btn_PreseleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_PreseleccionarActionPerformed
         Preseleccionar_Candidato vP = new Preseleccionar_Candidato();
         this.setVisible(false);
-        vP.setSize(600,500);
         vP.setLocationRelativeTo(null);
         vP.setVisible(true);
     }//GEN-LAST:event_Btn_PreseleccionarActionPerformed

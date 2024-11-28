@@ -193,7 +193,6 @@ public class Preseleccionar_Candidato extends javax.swing.JFrame {
         // Abre la nueva ventana con los detalles del candidato
         Revisar_Datos_Candidato vR = new Revisar_Datos_Candidato(candidatoID);
         this.setVisible(false);
-        vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
     }//GEN-LAST:event_Btn_RevisarActionPerformed

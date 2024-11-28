@@ -81,14 +81,17 @@ public class Ver_Candidato_Preseleccionado {
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaCandidato.setRowSorter(OrdenarTabla);
 
-        modelo.addColumn("IDCandidato");
         modelo.addColumn("IDFormulario");
+        modelo.addColumn("Pregunta");
         modelo.addColumn("Respuesta");
 
         paramTablaCandidato.setModel(modelo);
 
         // La consulta SQL ahora incluye el FROM Respuestas
-        String sql = "SELECT IdUsuario, IdFormulario, RespuestasUsuario FROM Respuestas WHERE IdUsuario = ?";
+        String sql = "SELECT r.IdFormulario, p.Pregunta, r.RespuestasUsuario " +
+                     "FROM Respuestas r " +
+                     "INNER JOIN Preguntas p ON r.IdPregunta = p.Id " +
+                     "WHERE r.IdUsuario = ?";
         String[] datos = new String[3];
 
         try (PreparedStatement ps = objetoConexion.Conectar().prepareStatement(sql)) {
@@ -96,8 +99,8 @@ public class Ver_Candidato_Preseleccionado {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                datos[0] = rs.getString("IdUsuario");
-                datos[1] = rs.getString("IdFormulario");
+                datos[0] = rs.getString("IDFormulario");
+                datos[1] = rs.getString("Pregunta");
                 datos[2] = rs.getString("RespuestasUsuario");
 
                 modelo.addRow(datos);
