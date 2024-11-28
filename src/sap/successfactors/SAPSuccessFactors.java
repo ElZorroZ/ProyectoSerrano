@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sap.successfactors;
+import java.sql.Connection;
 import java.util.ArrayList;
 import sap.successfactors.Pantalla_Inicio;
 
@@ -12,7 +13,8 @@ import sap.successfactors.Pantalla_Inicio;
  * @author PC
  */
 public class SAPSuccessFactors {
-    ConexionBDD conexion=new ConexionBDD();
+    ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+    Connection con = objetoConexion.Conectar();
     /**
      * @param args the command line arguments
      */

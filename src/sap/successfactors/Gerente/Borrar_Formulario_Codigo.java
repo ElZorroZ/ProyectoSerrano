@@ -30,7 +30,8 @@ public class Borrar_Formulario_Codigo {
     
     public void EliminarFormulario(JTextField paramID) {
         setID(paramID.getText());
-        ConexionBDD objetoConexion = new ConexionBDD();
+        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        Connection con = objetoConexion.Conectar();
 
         // Consultas SQL para eliminar registros en el orden correcto
         String eliminarRespuestas = "DELETE FROM Respuestas WHERE IdFormulario = ?";
@@ -89,7 +90,8 @@ public class Borrar_Formulario_Codigo {
         }
     }
     public void MostrarFormularios(JTable paramTablaTotalFormularios) {
-        ConexionBDD objetoConexion = new ConexionBDD();
+        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalFormularios.setRowSorter(OrdenarTabla);

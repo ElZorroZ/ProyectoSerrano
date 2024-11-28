@@ -67,7 +67,7 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
             }
         });
 
-        Btn_Revisar.setText("Revisar Respuestas del Candidato");
+        Btn_Revisar.setText("Revisar Entrevistas del Candidato");
         Btn_Revisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_RevisarActionPerformed(evt);
@@ -93,7 +93,7 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Btn_Revisar)
@@ -149,16 +149,6 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_TablaCandidatosMouseClicked
 
-    private void Btn_RevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RevisarActionPerformed
-        String candidatoID = JTextField_ID.getText();
-
-        // Abre la nueva ventana con los detalles del candidato
-        Revisar_Datos_Candidato_Preseleccionado vR = new Revisar_Datos_Candidato_Preseleccionado(candidatoID);
-        this.setVisible(false);
-        vR.setLocationRelativeTo(null);
-        vR.setVisible(true);
-    }//GEN-LAST:event_Btn_RevisarActionPerformed
-
     private void Btn_SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_SeleccionarActionPerformed
         Ver_Candidato_Preseleccionado objetoCandidato = new Ver_Candidato_Preseleccionado();
         try {
@@ -188,6 +178,16 @@ public class Seleccionar_Candidato extends javax.swing.JFrame {
         vG.setLocationRelativeTo(null);
         vG.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void Btn_RevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RevisarActionPerformed
+        String candidatoID = JTextField_ID.getText();
+
+        // Abre la nueva ventana con los detalles del candidato
+        Revisar_Datos_Candidato_Preseleccionado vR = new Revisar_Datos_Candidato_Preseleccionado(candidatoID);
+        this.setVisible(false);
+        vR.setLocationRelativeTo(null);
+        vR.setVisible(true);
+    }//GEN-LAST:event_Btn_RevisarActionPerformed
 
     /**
      * @param args the command line arguments

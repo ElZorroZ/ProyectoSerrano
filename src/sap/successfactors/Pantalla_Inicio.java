@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package sap.successfactors;
+import java.sql.Connection;
 import sap.successfactors.Candidato.Realizar_Formulario;
 import sap.successfactors.Candidato.Realizar_Formulario_Codigo;
 import sap.successfactors.Gerente.Pantalla_JefeRRHH;
@@ -18,7 +19,8 @@ import javax.swing.JOptionPane;
  * @author PC
  */
 public class Pantalla_Inicio extends javax.swing.JFrame {
-    ConexionBDD conexion=new ConexionBDD();
+    ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+    Connection con = objetoConexion.Conectar();
     /**
      * Creates new form Pantalla_Principal
      */
