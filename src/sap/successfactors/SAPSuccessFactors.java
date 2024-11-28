@@ -20,7 +20,6 @@ public class SAPSuccessFactors {
         
         Pantalla_Inicio pantalla=new Pantalla_Inicio();
         pantalla.setVisible(true);
-        pantalla.setSize(500,450);
         pantalla.setLocationRelativeTo(null);
         
         
