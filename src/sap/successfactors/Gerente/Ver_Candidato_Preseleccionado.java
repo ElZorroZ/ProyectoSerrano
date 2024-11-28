@@ -28,7 +28,7 @@ public class Ver_Candidato_Preseleccionado {
     }
     
     public void MostrarCandidatosPreseleccionados(JTable paramTablaTotalCandidatos) {
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
@@ -77,47 +77,65 @@ public class Ver_Candidato_Preseleccionado {
         }
     }
     public void MostrarCandidatoPorID(JTable paramTablaCandidato, String candidatoID) {
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaCandidato.setRowSorter(OrdenarTabla);
 
-        modelo.addColumn("IDFormulario");
-        modelo.addColumn("Pregunta");
-        modelo.addColumn("Respuesta");
+        // Definir las columnas de la tabla
+        modelo.addColumn("IDEntrevista");
+        modelo.addColumn("TipoEntrevista");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Puntuacion");
+        modelo.addColumn("Comentario");
 
+        // Establecer el modelo de la tabla
         paramTablaCandidato.setModel(modelo);
 
-        // La consulta SQL ahora incluye el FROM Respuestas
-        String sql = "SELECT r.IdFormulario, p.Pregunta, r.RespuestasUsuario " +
-                     "FROM Respuestas r " +
-                     "INNER JOIN Preguntas p ON r.IdPregunta = p.Id " +
-                     "WHERE r.IdUsuario = ?";
-        String[] datos = new String[3];
+        // La consulta SQL ahora incluye la tabla Respuestas
+        String sql = "SELECT IdEntrevista, TipoEntrevista, Fecha, Puntuacion, Comentario FROM Entrevistas WHERE IdUsuario = ?";
 
-        try (PreparedStatement ps = objetoConexion.Conectar().prepareStatement(sql)) {
+        // Array para almacenar los datos de la fila
+        String[] datos = new String[5];
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, candidatoID); // Pasamos el ID como parámetro
             ResultSet rs = ps.executeQuery();
 
+            // Recorrer los resultados y llenar la tabla
             while (rs.next()) {
-                datos[0] = rs.getString("IDFormulario");
-                datos[1] = rs.getString("Pregunta");
-                datos[2] = rs.getString("RespuestasUsuario");
+                datos[0] = rs.getString("IdEntrevista");
+                datos[1] = rs.getString("TipoEntrevista");
 
-                modelo.addRow(datos);
+                // Convertir la fecha en un formato adecuado
+                java.sql.Date fechaSQL = rs.getDate("Fecha");
+                if (fechaSQL != null) {
+                    datos[2] = fechaSQL.toString(); // Convertir la fecha a String
+                } else {
+                    datos[2] = "";
+                }
+
+                datos[3] = rs.getString("Puntuacion");
+                datos[4] = rs.getString("Comentario");
+
+                modelo.addRow(datos); // Añadir la fila al modelo
             }
+
+            // Actualizar la tabla con el nuevo modelo
             paramTablaCandidato.setModel(modelo);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al mostrar candidato: " + e.toString());
         } finally {
             objetoConexion.cerrarConexion();
         }
     }
+
     public void SeleccionarCandidato(JTextField paramID) {
         setID(paramID.getText());
     
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
 
         String consulta = "UPDATE Usuario SET IdEstado = 5 WHERE Id = ?;";
@@ -138,7 +156,7 @@ public class Ver_Candidato_Preseleccionado {
     }
     public void EliminarCandidato(JTextField paramID) {
         setID(paramID.getText()); // Establecer el ID a eliminar
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
 
         // Consultas SQL

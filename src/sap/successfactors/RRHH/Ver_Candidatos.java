@@ -30,7 +30,7 @@ public class Ver_Candidatos {
     }
     
     public void MostrarCandidatos(JTable paramTablaTotalCandidatos) {
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
@@ -79,7 +79,7 @@ public class Ver_Candidatos {
         }
     }
     public void MostrarCandidatoPorID(JTable paramTablaCandidato, String candidatoID) {
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
@@ -125,7 +125,7 @@ public class Ver_Candidatos {
     public void PreseleccionarCandidato(JTextField paramID) {
         setID(paramID.getText());
     
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
 
         String consulta = "UPDATE Usuario SET IdEstado = 4 WHERE Id = ?;";
@@ -146,7 +146,7 @@ public class Ver_Candidatos {
     }
     public void EliminarCandidato(JTextField paramID) {
         setID(paramID.getText()); // Establecer el ID a eliminar
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
 
         // Consultas SQL

@@ -35,6 +35,8 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
         Btn_BorrarFormularios = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
         Btn_SeleccionarCandidatos = new javax.swing.JButton();
+        Btn_Entrevistar = new javax.swing.JButton();
+        Btn_BorrarEntrevista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,10 +68,24 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
             }
         });
 
-        Btn_SeleccionarCandidatos.setText("Entrevistar candidatos");
+        Btn_SeleccionarCandidatos.setText("Seleccionar Candidatos");
         Btn_SeleccionarCandidatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_SeleccionarCandidatosActionPerformed(evt);
+            }
+        });
+
+        Btn_Entrevistar.setText("Entrevistar Candidatos");
+        Btn_Entrevistar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EntrevistarActionPerformed(evt);
+            }
+        });
+
+        Btn_BorrarEntrevista.setText("Borrar Entrevista");
+        Btn_BorrarEntrevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_BorrarEntrevistaActionPerformed(evt);
             }
         });
 
@@ -78,30 +94,37 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Btn_BorrarFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_VerFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_SeleccionarCandidatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(109, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Btn_SeleccionarCandidatos)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Btn_BorrarFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Btn_VerFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Btn_Entrevistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Btn_BorrarEntrevista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_volver)
-                .addGap(44, 44, 44)
+                .addGap(14, 14, 14)
                 .addComponent(btn_CrearFormulario)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_VerFormularios)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_BorrarFormularios)
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
+                .addComponent(Btn_Entrevistar)
+                .addGap(4, 4, 4)
+                .addComponent(Btn_BorrarEntrevista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_SeleccionarCandidatos)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,6 +176,21 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
         vS.setVisible(true);
     }//GEN-LAST:event_Btn_SeleccionarCandidatosActionPerformed
 
+    private void Btn_EntrevistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EntrevistarActionPerformed
+        Crear_Entrevista vS = new Crear_Entrevista();
+        this.setVisible(false);
+        vS.setLocationRelativeTo(null);
+        vS.setVisible(true);
+    }//GEN-LAST:event_Btn_EntrevistarActionPerformed
+
+    private void Btn_BorrarEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_BorrarEntrevistaActionPerformed
+        Borrar_Entrevista vS = new Borrar_Entrevista();
+        this.setVisible(false);
+        vS.setLocationRelativeTo(null);
+        vS.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_BorrarEntrevistaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -190,7 +228,9 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_BorrarEntrevista;
     private javax.swing.JButton Btn_BorrarFormularios;
+    private javax.swing.JButton Btn_Entrevistar;
     private javax.swing.JButton Btn_SeleccionarCandidatos;
     private javax.swing.JButton Btn_VerFormularios;
     private javax.swing.JButton btn_CrearFormulario;

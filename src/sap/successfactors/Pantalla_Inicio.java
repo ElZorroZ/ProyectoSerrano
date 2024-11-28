@@ -11,6 +11,7 @@ import sap.successfactors.Gerente.Pantalla_JefeRRHH;
 import sap.successfactors.RRHH.Pantalla_RRHH;
 import sap.successfactors.Candidato.Registrarse;
 import sap.successfactors.Gerente.Crear_Formulario;
+import sap.successfactors.ConexionBDD;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author PC
  */
 public class Pantalla_Inicio extends javax.swing.JFrame {
-    ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+    ConexionBDD objetoConexion = new ConexionBDD();
     Connection con = objetoConexion.Conectar();
     /**
      * Creates new form Pantalla_Principal

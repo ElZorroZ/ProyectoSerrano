@@ -5,7 +5,10 @@
  */
 package sap.successfactors.Gerente;
 import com.toedter.calendar.JDateChooser;
+import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import sap.successfactors.Gerente.Crear_Entrevista_Codigo;
 
 /**
  *
@@ -18,7 +21,14 @@ public class Crear_Entrevista extends javax.swing.JFrame {
      */
     public Crear_Entrevista() {
         initComponents();
+        Crear_Entrevista_Codigo objetoEntrevista = new Crear_Entrevista_Codigo();
+        objetoEntrevista.MostrarCandidatos(TablaCandidatos);
+        objetoEntrevista.MostrarEmpleados(TablaEmpleados);
         jComboBox_TipoEntrevista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Apto Medico", "Habilidades", "Idioma" }));
+        datechooser_FechaInicio.getDateEditor().setEnabled(false);
+        datechooser_FechaInicio.setMinSelectableDate(new Date());
+        JTextField_IDCandidato.setVisible(false); 
+        JTextField_IDEmpleado.setVisible(false); 
 
     }
 
@@ -41,7 +51,9 @@ public class Crear_Entrevista extends javax.swing.JFrame {
         TablaCandidatos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         TablaEmpleados = new javax.swing.JTable();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        Btn_CrearEntrevista = new javax.swing.JToggleButton();
+        JTextField_IDCandidato = new javax.swing.JTextField();
+        JTextField_IDEmpleado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,10 +106,10 @@ public class Crear_Entrevista extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TablaEmpleados);
 
-        jToggleButton1.setText("Crear Entrevistar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_CrearEntrevista.setText("Crear Entrevistar");
+        Btn_CrearEntrevista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                Btn_CrearEntrevistaActionPerformed(evt);
             }
         });
 
@@ -113,40 +125,51 @@ public class Crear_Entrevista extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel2)
                                     .addComponent(jComboBox_TipoEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(datechooser_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(JTextField_IDCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Btn_CrearEntrevista)
+                                        .addGap(66, 66, 66)
+                                        .addComponent(JTextField_IDEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(181, 181, 181)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
-                .addGap(280, 280, 280))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btn_volver)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox_TipoEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(datechooser_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jToggleButton1)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JTextField_IDEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_volver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox_TipoEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(datechooser_FechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(Btn_CrearEntrevista))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(JTextField_IDCandidato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -172,16 +195,46 @@ public class Crear_Entrevista extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_volverActionPerformed
 
     private void TablaCandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCandidatosMouseClicked
-        // TODO add your handling code here:
+        Crear_Entrevista_Codigo objetoEntrevista = new Crear_Entrevista_Codigo();
+        objetoEntrevista.SeleccionarCandidato(TablaCandidatos, JTextField_IDCandidato);
     }//GEN-LAST:event_TablaCandidatosMouseClicked
 
     private void TablaEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaEmpleadosMouseClicked
-        // TODO add your handling code here:
+        Crear_Entrevista_Codigo objetoEntrevista = new Crear_Entrevista_Codigo();
+        objetoEntrevista.SeleccionarEmpleado(TablaEmpleados, JTextField_IDEmpleado);
     }//GEN-LAST:event_TablaEmpleadosMouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void Btn_CrearEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CrearEntrevistaActionPerformed
+        Crear_Entrevista_Codigo objetoEntrevista = new Crear_Entrevista_Codigo();
+        try {
+            // Validar campos antes de intentar insertar
+            if (JTextField_IDCandidato.getText().isEmpty() || JTextField_IDEmpleado.getText().isEmpty() || 
+                jComboBox_TipoEntrevista.getSelectedItem() == null || datechooser_FechaInicio.getDate() == null) {
+                JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Error", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            java.sql.Date sqlFecha = new java.sql.Date(datechooser_FechaInicio.getDate().getTime());
+
+            // Llamar al método para insertar entrevista
+            objetoEntrevista.InsertarEntrevista(
+                JTextField_IDCandidato.getText(),
+                JTextField_IDEmpleado.getText(),
+                jComboBox_TipoEntrevista.getSelectedItem().toString(),
+                sqlFecha
+            );
+
+            // Refrescar tablas
+            objetoEntrevista.MostrarCandidatos(TablaCandidatos);
+            objetoEntrevista.MostrarEmpleados(TablaEmpleados);
+
+            // Limpiar selección
+            TablaCandidatos.clearSelection();
+            TablaEmpleados.clearSelection();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Error al crear la entrevista: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                e.printStackTrace();
+        }
+    }//GEN-LAST:event_Btn_CrearEntrevistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +272,9 @@ public class Crear_Entrevista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton Btn_CrearEntrevista;
+    private javax.swing.JTextField JTextField_IDCandidato;
+    private javax.swing.JTextField JTextField_IDEmpleado;
     private javax.swing.JTable TablaCandidatos;
     private javax.swing.JTable TablaEmpleados;
     private javax.swing.JButton btn_volver;
@@ -229,6 +285,5 @@ public class Crear_Entrevista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

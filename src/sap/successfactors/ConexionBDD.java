@@ -26,20 +26,6 @@ import java.sql.SQLException;
  */
 public class ConexionBDD {
     private Connection miConexion = null;
-    private static ConexionBDD instancia;
-    private ConexionBDD() {}
-    
-    public static ConexionBDD getInstancia() {
-        if (instancia == null) {
-            synchronized (ConexionBDD.class) {
-                if (instancia == null) {
-                    instancia = new ConexionBDD();
-                }
-            }
-        }
-        return instancia;
-    }
-    
     public Connection Conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

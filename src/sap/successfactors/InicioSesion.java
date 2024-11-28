@@ -37,7 +37,7 @@ public class InicioSesion {
     public int IngresarSesion(JTextField paramUsuario, JTextField paramContra) {
         setUsuario(paramUsuario.getText());
         setContra(paramContra.getText());
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -72,8 +72,10 @@ public class InicioSesion {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
+            objetoConexion.cerrarConexion();
         }
         return idEstado;
+        
     }
 }
 

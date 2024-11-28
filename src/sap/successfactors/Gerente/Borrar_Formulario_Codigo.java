@@ -30,7 +30,7 @@ public class Borrar_Formulario_Codigo {
     
     public void EliminarFormulario(JTextField paramID) {
         setID(paramID.getText());
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
 
         // Consultas SQL para eliminar registros en el orden correcto
@@ -76,6 +76,10 @@ public class Borrar_Formulario_Codigo {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.toString());
         }
+        finally {
+            objetoConexion.cerrarConexion();
+        }
+        
     }
     public void SeleccionarFormulario(JTable paramTablaFormulario, JTextField paramID) {
         try {
@@ -90,7 +94,7 @@ public class Borrar_Formulario_Codigo {
         }
     }
     public void MostrarFormularios(JTable paramTablaTotalFormularios) {
-        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
+        ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = objetoConexion.Conectar();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
