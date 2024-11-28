@@ -37,7 +37,7 @@ public class InicioSesion {
     public int IngresarSesion(JTextField paramUsuario, JTextField paramContra) {
         setUsuario(paramUsuario.getText());
         setContra(paramContra.getText());
-        ConexionBDD objetoConexion = new ConexionBDD();
+        ConexionBDD objetoConexion = ConexionBDD.getInstancia();
         Connection con = objetoConexion.Conectar();
         PreparedStatement pst = null;
         ResultSet rs = null;
