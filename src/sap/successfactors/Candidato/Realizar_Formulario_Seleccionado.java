@@ -77,6 +77,7 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(47, 94, 141));
 
+        lista_Preguntas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lista_Preguntas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -84,6 +85,7 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lista_Preguntas);
 
+        btn_aceptar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_aceptar.setText("Aceptar");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,9 +95,11 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(31, 50, 69));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(229, 232, 236));
         jLabel1.setText("Preguntas");
 
+        btn_volver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_volver.setText("Volver");
         btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,7 +116,7 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
                 .addComponent(btn_volver)
                 .addGap(82, 82, 82)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,9 +138,9 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
                 .addGap(56, 56, 56))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,14 +169,15 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
 
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         Realizar_Formulario  vF = new Realizar_Formulario(Id);
+        vF.setSize(505, 400);
         this.setVisible(false);
         vF.setVisible(true);
-        vF.setSize(930,530);
         vF.setLocationRelativeTo(null);
     }//GEN-LAST:event_btn_volverActionPerformed
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
         Realizar_Formulario  vF = new Realizar_Formulario(Id);
+        vF.setSize(505, 400);
         this.setVisible(false);
         vF.setVisible(true);
         vF.setSize(930,530);

@@ -44,6 +44,7 @@ public class Ver_Formulario_Codigo {
         int tienePregunta=Selec_cant_Pregunta(id);
         Ver_Pregunta formu=new Ver_Pregunta(Id, pregunta, tienePregunta, ID);
         //Corregir --- formu.mostrar_id(Id);
+        formu.setSize(401, 240);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
         

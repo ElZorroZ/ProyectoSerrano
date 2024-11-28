@@ -35,6 +35,7 @@ public class Realizar_Formulario_Codigo {
         int Id=id;
         Realizar_Formulario_Seleccionado formu=new Realizar_Formulario_Seleccionado(Id);
         formu.mostrar_id(Id, idUsuario);
+        formu.setSize(388, 380);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
         
@@ -44,6 +45,7 @@ public class Realizar_Formulario_Codigo {
         int Id=id;
         int tienePregunta=Selec_cant_Pregunta(id);
         Realizar_Pregunta formu=new Realizar_Pregunta(Id, pregunta, tienePregunta, idUsuario, idFormulario);
+        formu.setSize(386, 235);
         //Corregir --- formu.mostrar_id(Id);
         formu.setVisible(true);
         formu.setLocationRelativeTo(null);
