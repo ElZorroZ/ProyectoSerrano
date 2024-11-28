@@ -142,28 +142,47 @@ public class Ver_Candidatos {
         }
     }
     public void EliminarCandidato(JTextField paramID) {
-        setID(paramID.getText());
+        setID(paramID.getText()); // Establecer el ID a eliminar
         ConexionBDD objetoConexion = new ConexionBDD();
 
-        String consulta = "DELETE FROM Usuario WHERE Id = ?;";
+        // Consultas SQL
+        String eliminarRespuestas = "DELETE FROM Respuestas WHERE IdUsuario = ?;";
+        String eliminarUsuario = "DELETE FROM Usuario WHERE Id = ?;";
 
-        try {
-            PreparedStatement ps = objetoConexion.Conectar().prepareStatement(consulta);
-            ps.setString(1, ID); // Pasamos el ID del candidato como parámetro
+        try (Connection conexion = objetoConexion.Conectar()) {
+            conexion.setAutoCommit(false); // Iniciar transacción
 
-            int filasAfectadas = ps.executeUpdate(); // Ejecutamos la consulta
-
-            if (filasAfectadas > 0) {
-                JOptionPane.showMessageDialog(null, "El candidato fue eliminado correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "No se encontró un candidato con el ID proporcionado.");
+            // Eliminar primero las respuestas asociadas
+            try (PreparedStatement psRespuestas = conexion.prepareStatement(eliminarRespuestas)) {
+                psRespuestas.setString(1, ID);
+                psRespuestas.executeUpdate(); // Ejecutar eliminación de respuestas
             }
 
+            // Eliminar al usuario
+            try (PreparedStatement psUsuario = conexion.prepareStatement(eliminarUsuario)) {
+                psUsuario.setString(1, ID);
+                int filasAfectadas = psUsuario.executeUpdate(); // Ejecutar eliminación de usuario
+
+                if (filasAfectadas > 0) {
+                    JOptionPane.showMessageDialog(null, "El candidato fue eliminado correctamente.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró un candidato con el ID proporcionado.");
+                }
+            }
+
+            // Confirmar la transacción si todo salió bien
+            conexion.commit();
         } catch (Exception e) {
+            try {
+                objetoConexion.Conectar().rollback(); // Revertir cambios si hay un error
+            } catch (Exception rollbackEx) {
+                JOptionPane.showMessageDialog(null, "Error al hacer rollback: " + rollbackEx.toString());
+            }
             JOptionPane.showMessageDialog(null, "Error al eliminar candidato: " + e.toString());
         } finally {
             objetoConexion.cerrarConexion();
         }
     }
+
 
 }
