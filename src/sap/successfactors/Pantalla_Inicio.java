@@ -5,7 +5,7 @@
  */
 package sap.successfactors;
 import java.sql.Connection;
-import sap.successfactors.Candidato.Realizar_Formulario;
+import sap.successfactors.Candidato.Pantalla_Candidato;
 import sap.successfactors.Candidato.Realizar_Formulario_Codigo;
 import sap.successfactors.Gerente.Pantalla_JefeRRHH;
 import sap.successfactors.RRHH.Pantalla_RRHH;
@@ -210,9 +210,8 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         Realizar_Formulario_Codigo codigo=new Realizar_Formulario_Codigo();
         int id=codigo.Select_IdUsuario(mail);
         
-        Realizar_Formulario  vF = new Realizar_Formulario(id);
+        Pantalla_Candidato  vF = new Pantalla_Candidato(id);
         this.setVisible(false);
-        vF.setSize(505, 400);
         vF.setVisible(true);
         vF.setLocationRelativeTo(null);
     }

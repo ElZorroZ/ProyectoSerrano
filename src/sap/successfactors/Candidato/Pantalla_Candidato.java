@@ -4,52 +4,22 @@
  * and open the template in the editor.
  */
 package sap.successfactors.Candidato;
+
 import sap.successfactors.Pantalla_Inicio;
-import sap.successfactors.Gerente.*;
-import javax.swing.DefaultListModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 /**
  *
  * @author PC
  */
-public class Realizar_Formulario extends javax.swing.JFrame {
-    DefaultListModel modelo = new DefaultListModel();
-    Realizar_Formulario_Codigo vFc=new Realizar_Formulario_Codigo();
-    int idUsuario;
+public class Pantalla_Candidato extends javax.swing.JFrame {
+    int ID;
     /**
-     * Creates new form Ver_Formulario
+     * Creates new form Pantalla_Candidato
      */
-    public Realizar_Formulario(int id_Usuario) {
-        idUsuario=id_Usuario;
+    public Pantalla_Candidato(int id) {
+        ID=id;
         initComponents();
- 
-        this.setResizable(false);
-        modelo=vFc.mostrar(modelo);
-        list_Formularios.setModel(modelo);
-        list_Formularios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        list_Formularios.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    String itemSeleccionado = list_Formularios.getSelectedValue();
-                    String[] separado=itemSeleccionado.split("-");
-                    int id=Integer.parseInt(separado[0]);
-                    Esconder(id, idUsuario);
-                    
-                    
-                    
-                }
-            }
-        });
     }
-
-    private void Esconder(int id, int idUsuario){
-        this.setVisible(false);
-        vFc.mostrar_Pantalla_Formulario_Seleccionado(id, idUsuario);
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,27 +31,23 @@ public class Realizar_Formulario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        list_Formularios = new javax.swing.JList<>();
         jPanel2 = new javax.swing.JPanel();
-        btn_Volver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btn_Volver = new javax.swing.JButton();
+        btn_RealizarCandidato = new javax.swing.JButton();
+        btn_Notificaciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(47, 94, 141));
 
-        list_Formularios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        list_Formularios.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(list_Formularios);
-
         jPanel2.setBackground(new java.awt.Color(31, 50, 69));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(229, 232, 236));
+        jLabel1.setText("Candidato");
+
+        btn_Volver.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_Volver.setText("Volver");
         btn_Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,56 +55,64 @@ public class Realizar_Formulario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(229, 232, 236));
-        jLabel1.setText("Formularios");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(btn_Volver)
-                .addGap(121, 121, 121)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_Volver)
-                    .addComponent(jLabel1))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addComponent(btn_Volver))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(229, 232, 236));
-        jLabel2.setText("Elija el formulario dependiendo a que puesto quiere aplicar");
+        btn_RealizarCandidato.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_RealizarCandidato.setText("Realizar formulario");
+        btn_RealizarCandidato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_RealizarCandidatoActionPerformed(evt);
+            }
+        });
+
+        btn_Notificaciones.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btn_Notificaciones.setText("Notificaciones");
+        btn_Notificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_NotificacionesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(114, 114, 114)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(btn_RealizarCandidato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Notificaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(btn_RealizarCandidato)
+                .addGap(46, 46, 46)
+                .addComponent(btn_Notificaciones)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,33 +123,46 @@ public class Realizar_Formulario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VolverActionPerformed
-        Pantalla_Candidato pantalla=new Pantalla_Candidato(idUsuario);
+        Pantalla_Inicio pantalla=new Pantalla_Inicio();
         this.setVisible(false);
         pantalla.setVisible(true);
         pantalla.setLocationRelativeTo(null);
     }//GEN-LAST:event_btn_VolverActionPerformed
 
+    private void btn_RealizarCandidatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RealizarCandidatoActionPerformed
+        
+        Realizar_Formulario  vF = new Realizar_Formulario(ID);
+        this.setVisible(false);
+        vF.setSize(505, 400);
+        vF.setVisible(true);
+        vF.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btn_RealizarCandidatoActionPerformed
+
+    private void btn_NotificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NotificacionesActionPerformed
+        Ver_Notificaciones  vF = new Ver_Notificaciones(ID);
+        this.setVisible(false);
+        vF.setVisible(true);
+        vF.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btn_NotificacionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Notificaciones;
+    private javax.swing.JButton btn_RealizarCandidato;
     private javax.swing.JButton btn_Volver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> list_Formularios;
     // End of variables declaration//GEN-END:variables
 }
