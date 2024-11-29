@@ -30,7 +30,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="Btn_VerEntrevista" max="32767" attributes="0"/>
                   <Component id="Btn_Preseleccionar" max="32767" attributes="0"/>
                   <Component id="btn_Formularios" max="32767" attributes="0"/>
               </Group>
@@ -47,7 +47,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="Btn_Preseleccionar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="Btn_VerEntrevista" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="130" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -78,10 +78,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_volverActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="Btn_VerEntrevista">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver entrevistas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_VerEntrevistaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

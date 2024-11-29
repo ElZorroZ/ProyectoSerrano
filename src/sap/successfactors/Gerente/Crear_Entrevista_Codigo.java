@@ -27,9 +27,11 @@ public class Crear_Entrevista_Codigo {
         this.ID = ID;
     }
     
-    public void MostrarCandidatos(JTable paramTablaTotalCandidatos) {
+   public void MostrarCandidatos(JTable paramTablaTotalCandidatos) {
         ConexionBDD objetoConexion = new ConexionBDD();
-        Connection con = objetoConexion.Conectar();
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalCandidatos.setRowSorter(OrdenarTabla);
@@ -40,31 +42,48 @@ public class Crear_Entrevista_Codigo {
         modelo.addColumn("Email");
 
         paramTablaTotalCandidatos.setModel(modelo);
-        
+
         String sql = "SELECT Id, Nombre, Apellido, Email FROM Usuario WHERE IdEstado= 4;";
         String[] datos = new String[4];
 
         try {
-            Statement st = objetoConexion.Conectar().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            con = objetoConexion.Conectar();  // Establecer la conexión
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
             while (rs.next()) {
                 datos[0] = rs.getString("Id");
                 datos[1] = rs.getString("Nombre");
                 datos[2] = rs.getString("Apellido");
                 datos[3] = rs.getString("Email");    
-                
+
                 modelo.addRow(datos);
             }
             paramTablaTotalCandidatos.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar correctamente los registros, error:" + e.toString());
         } finally {
-            objetoConexion.cerrarConexion();
+            // Cerrar los recursos (ResultSet, Statement y Connection)
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close(); // Cerrar Statement
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close(); // Cierra la conexión
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
         }
     }
+
     public void MostrarEmpleados(JTable paramTablaTotalEmpleados) {
         ConexionBDD objetoConexion = new ConexionBDD();
-        Connection con = objetoConexion.Conectar();
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalEmpleados.setRowSorter(OrdenarTabla);
@@ -75,28 +94,43 @@ public class Crear_Entrevista_Codigo {
         modelo.addColumn("Email");
 
         paramTablaTotalEmpleados.setModel(modelo);
-        
+
         String sql = "SELECT Id, Nombre, Apellido, Email FROM Usuario WHERE IdEstado= 2;";
         String[] datos = new String[4];
 
         try {
-            Statement st = objetoConexion.Conectar().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            con = objetoConexion.Conectar();  // Establecer la conexión
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
             while (rs.next()) {
                 datos[0] = rs.getString("Id");
                 datos[1] = rs.getString("Nombre");
                 datos[2] = rs.getString("Apellido");
                 datos[3] = rs.getString("Email");    
-                
+
                 modelo.addRow(datos);
             }
             paramTablaTotalEmpleados.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar correctamente los registros, error:" + e.toString());
         } finally {
-            objetoConexion.cerrarConexion();
+            // Cerrar los recursos (ResultSet, Statement y Connection)
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close(); // Cerrar Statement
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close(); // Cierra la conexión
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
         }
     }
+
     // Método para seleccionar el reembolso y obtener su ID
     public void SeleccionarCandidato(JTable paramTablaCandidato, JTextField paramID) {
         try {
@@ -125,14 +159,16 @@ public class Crear_Entrevista_Codigo {
 
     public void InsertarEntrevista(String IDCandidato, String IDEmpleado, String TipoEntrevista, java.sql.Date FechaEntrevista) {
         ConexionBDD objetoConexion = new ConexionBDD();
-        Connection con = objetoConexion.Conectar();
+        Connection con = null;
+        PreparedStatement ps = null;
 
         // Consulta para insertar en la base de datos
         String consulta = "INSERT INTO Entrevistas (IdUsuario, IdEmpleado, TipoEntrevista, Fecha) VALUES (?, ?, ?, ?);";
 
         try {
+            con = objetoConexion.Conectar();  // Establecer la conexión
             // Preparar la consulta
-            PreparedStatement ps = con.prepareStatement(consulta);
+            ps = con.prepareStatement(consulta);
             ps.setString(1, IDCandidato);
             ps.setString(2, IDEmpleado);
             ps.setString(3, TipoEntrevista);
@@ -149,8 +185,19 @@ public class Crear_Entrevista_Codigo {
             JOptionPane.showMessageDialog(null, "Error al insertar la entrevista: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            objetoConexion.cerrarConexion();
+            // Cerrar los recursos (PreparedStatement y Connection)
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close(); // Cierra la conexión
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
         }
     }
+
 }
 

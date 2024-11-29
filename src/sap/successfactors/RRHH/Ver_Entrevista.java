@@ -5,6 +5,8 @@
  */
 package sap.successfactors.RRHH;
 
+import sap.successfactors.Gerente.Ver_Candidato_Preseleccionado;
+import sap.successfactors.RRHH.Ver_Entrevista_Codigo;
 /**
  *
  * @author thiag
@@ -16,6 +18,8 @@ public class Ver_Entrevista extends javax.swing.JFrame {
      */
     public Ver_Entrevista() {
         initComponents();
+        Ver_Entrevista_Codigo objetoCandidato = new Ver_Entrevista_Codigo();
+        objetoCandidato.MostrarEntrevistas(TablaCandidatos);
     }
 
     /**
@@ -32,6 +36,7 @@ public class Ver_Entrevista extends javax.swing.JFrame {
         TablaCandidatos = new javax.swing.JTable();
         btn_volver = new javax.swing.JButton();
         Btn_Revisar = new javax.swing.JButton();
+        JTextField_ID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,6 +51,11 @@ public class Ver_Entrevista extends javax.swing.JFrame {
 
             }
         ));
+        TablaCandidatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaCandidatosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaCandidatos);
 
         btn_volver.setText("Volver");
@@ -56,6 +66,11 @@ public class Ver_Entrevista extends javax.swing.JFrame {
         });
 
         Btn_Revisar.setText("Revisar Entrevista");
+        Btn_Revisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_RevisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -64,14 +79,17 @@ public class Ver_Entrevista extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(Btn_Revisar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(Btn_Revisar)
-                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +98,9 @@ public class Ver_Entrevista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Btn_Revisar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_Revisar)
+                    .addComponent(JTextField_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -105,6 +125,20 @@ public class Ver_Entrevista extends javax.swing.JFrame {
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void Btn_RevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RevisarActionPerformed
+        Revisar_Entrevista_Candidato vR = new Revisar_Entrevista_Candidato();
+        this.setVisible(false);
+        vR.setSize(600,500);
+        vR.setLocationRelativeTo(null);
+        vR.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_RevisarActionPerformed
+
+    private void TablaCandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCandidatosMouseClicked
+        Ver_Entrevista objetoCandidato = new Ver_Entrevista();
+// TODO add your handling code here:
+    }//GEN-LAST:event_TablaCandidatosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -143,6 +177,7 @@ public class Ver_Entrevista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Revisar;
+    private javax.swing.JTextField JTextField_ID;
     private javax.swing.JTable TablaCandidatos;
     private javax.swing.JButton btn_volver;
     private javax.swing.JPanel jPanel1;
