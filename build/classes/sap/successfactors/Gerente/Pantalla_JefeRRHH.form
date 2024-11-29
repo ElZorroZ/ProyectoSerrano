@@ -43,15 +43,23 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="Btn_SeleccionarCandidatos" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Btn_BorrarFormularios" max="32767" attributes="0"/>
-                          <Component id="Btn_VerFormularios" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btn_CrearFormulario" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Btn_Entrevistar" max="32767" attributes="0"/>
-                          <Component id="Btn_BorrarEntrevista" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="Btn_VerEntrevista" min="-2" pref="143" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="Btn_SeleccionarCandidatos" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="Btn_BorrarFormularios" max="32767" attributes="0"/>
+                                  <Component id="Btn_VerFormularios" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btn_CrearFormulario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Btn_Entrevistar" max="32767" attributes="0"/>
+                                  <Component id="Btn_BorrarEntrevista" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="107" max="32767" attributes="0"/>
@@ -70,11 +78,13 @@
                   <Component id="Btn_BorrarFormularios" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="Btn_Entrevistar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <Component id="Btn_VerEntrevista" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="Btn_BorrarEntrevista" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Btn_SeleccionarCandidatos" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="91" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -134,6 +144,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_BorrarEntrevistaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="Btn_VerEntrevista">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver Entrevistas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_VerEntrevistaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

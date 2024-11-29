@@ -37,6 +37,7 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
         Btn_SeleccionarCandidatos = new javax.swing.JButton();
         Btn_Entrevistar = new javax.swing.JButton();
         Btn_BorrarEntrevista = new javax.swing.JButton();
+        Btn_VerEntrevista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,13 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
             }
         });
 
+        Btn_VerEntrevista.setText("Ver Entrevistas");
+        Btn_VerEntrevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_VerEntrevistaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,15 +105,20 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
                 .addComponent(btn_volver)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Btn_SeleccionarCandidatos)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Btn_BorrarFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_VerFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_Entrevistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Btn_BorrarEntrevista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Btn_VerEntrevista, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Btn_SeleccionarCandidatos)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Btn_BorrarFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Btn_VerFormularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_CrearFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Btn_Entrevistar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Btn_BorrarEntrevista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,11 +133,13 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
                 .addComponent(Btn_BorrarFormularios)
                 .addGap(4, 4, 4)
                 .addComponent(Btn_Entrevistar)
-                .addGap(4, 4, 4)
+                .addGap(11, 11, 11)
+                .addComponent(Btn_VerEntrevista)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_BorrarEntrevista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_SeleccionarCandidatos)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,6 +206,14 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_Btn_BorrarEntrevistaActionPerformed
 
+    private void Btn_VerEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VerEntrevistaActionPerformed
+        Ver_Entrevista vS = new Ver_Entrevista();
+        this.setVisible(false);
+        vS.setLocationRelativeTo(null);
+        vS.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_VerEntrevistaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +255,7 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
     private javax.swing.JButton Btn_BorrarFormularios;
     private javax.swing.JButton Btn_Entrevistar;
     private javax.swing.JButton Btn_SeleccionarCandidatos;
+    private javax.swing.JButton Btn_VerEntrevista;
     private javax.swing.JButton Btn_VerFormularios;
     private javax.swing.JButton btn_CrearFormulario;
     private javax.swing.JButton btn_volver;
