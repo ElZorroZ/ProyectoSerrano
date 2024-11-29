@@ -65,7 +65,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setText("Pregunta:");
 
-        txtf_pregunta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtf_pregunta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         btn_agregarPregunta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_agregarPregunta.setText("Aceptar");
@@ -78,13 +78,11 @@ public class Crear_Formulario extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(182, 192, 199));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setText("(Opcional)");
 
-        txtf_opcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtf_opcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         lbl_opcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbl_opcion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_opcion.setText("Opcion ");
 
         btn_agregarOpc1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -187,7 +185,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setText("Nombre del formulario");
 
-        txtf_Formulario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtf_Formulario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(31, 50, 69));
 
@@ -249,7 +247,7 @@ public class Crear_Formulario extends javax.swing.JFrame {
                 .addComponent(txtf_Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(btn_crearFormulario)
                 .addGap(27, 27, 27))
         );

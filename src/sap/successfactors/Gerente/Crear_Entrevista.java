@@ -61,7 +61,7 @@ public class Crear_Entrevista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(47, 94, 141));
 
-        jComboBox_TipoEntrevista.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jComboBox_TipoEntrevista.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox_TipoEntrevista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -72,7 +72,7 @@ public class Crear_Entrevista extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(229, 232, 236));
         jLabel2.setText("Fecha de la entrevista");
 
-        TablaCandidatos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        TablaCandidatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TablaCandidatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -91,7 +91,7 @@ public class Crear_Entrevista extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaCandidatos);
 
-        TablaEmpleados.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        TablaEmpleados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TablaEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

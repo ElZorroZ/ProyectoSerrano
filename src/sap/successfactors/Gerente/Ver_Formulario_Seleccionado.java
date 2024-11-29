@@ -73,7 +73,7 @@ public class Ver_Formulario_Seleccionado extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(47, 94, 141));
 
-        lista_Preguntas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lista_Preguntas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lista_Preguntas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }

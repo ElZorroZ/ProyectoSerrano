@@ -180,7 +180,6 @@ public class Realizar_Formulario_Seleccionado extends javax.swing.JFrame {
         vF.setSize(505, 400);
         this.setVisible(false);
         vF.setVisible(true);
-        vF.setSize(930,530);
         vF.setLocationRelativeTo(null);
     }//GEN-LAST:event_btn_aceptarActionPerformed
 

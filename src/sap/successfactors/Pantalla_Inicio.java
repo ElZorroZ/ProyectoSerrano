@@ -202,7 +202,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         Pantalla_RRHH  vR = new Pantalla_RRHH();
         this.setVisible(false);
         vR.setVisible(true);
-        vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
     }
     

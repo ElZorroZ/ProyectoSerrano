@@ -73,7 +73,7 @@ public class Ver_Pregunta extends javax.swing.JFrame {
         lbl_Pregunta.setForeground(new java.awt.Color(229, 232, 236));
         lbl_Pregunta.setText("jLabel1");
 
-        ComboBox_Respuest.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ComboBox_Respuest.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ComboBox_Respuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBox_RespuestActionPerformed(evt);

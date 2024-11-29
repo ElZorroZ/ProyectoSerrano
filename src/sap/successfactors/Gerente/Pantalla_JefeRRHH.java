@@ -204,7 +204,6 @@ public class Pantalla_JefeRRHH extends javax.swing.JFrame {
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         Pantalla_Inicio vM = new Pantalla_Inicio();
         this.setVisible(false);
-        vM.setSize(600,500);
         vM.setLocationRelativeTo(null);
         vM.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed

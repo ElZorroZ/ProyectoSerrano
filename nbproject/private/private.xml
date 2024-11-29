@@ -3,28 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/InicioSesion.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Seleccionar_Candidato.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Pantalla_JefeRRHH.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Realizar_Formulario_Codigo.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Formulario_Codigo.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Ver_Notificaciones.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Pregunta.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Pantalla_Inicio.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Formulario_Seleccionado.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/ConexionBDD.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Realizar_Formulario_Seleccionado.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Revisar_Datos_Candidato_Preseleccionado.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/RRHH/Pantalla_RRHH.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/InicioSesion.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Seleccionar_Candidato.java</file>
+            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Formulario_Codigo.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Entrevista.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Formulario.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Crear_Formulario.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Pantalla_Inicio.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Pantalla_Candidato.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Formulario_Seleccionado.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Ver_Entrevista_Codigo.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Borrar_Formulario.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Realizar_Pregunta.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Registrarse.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Crear_Entrevista.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Realizar_Formulario_Seleccionado.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/SAPSuccessFactors.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Borrar_Entrevista.java</file>
-            <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Gerente/Revisar_Datos_Candidato_Preseleccionado.java</file>
             <file>file:/C:/Users/PC/Desktop/Proyecto%20club%20escuela/ProyectoSerrano/src/sap/successfactors/Candidato/Realizar_Formulario.java</file>
         </group>
     </open-files>
