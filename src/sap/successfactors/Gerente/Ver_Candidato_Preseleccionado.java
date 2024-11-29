@@ -206,10 +206,12 @@ public class Ver_Candidato_Preseleccionado {
         ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = null;
         PreparedStatement psRespuestas = null;
+        PreparedStatement psEntrevistas = null;
         PreparedStatement psUsuario = null;
 
         // Consultas SQL
         String eliminarRespuestas = "DELETE FROM Respuestas WHERE IdUsuario = ?;";
+        String eliminarEntrevistas = "DELETE FROM Entrevistas WHERE IdUsuario = ?;";
         String eliminarUsuario = "DELETE FROM Usuario WHERE Id = ?;";
 
         try {
@@ -219,14 +221,20 @@ public class Ver_Candidato_Preseleccionado {
             // Eliminar primero las respuestas asociadas
             psRespuestas = con.prepareStatement(eliminarRespuestas);
             psRespuestas.setString(1, ID);
-            psRespuestas.executeUpdate(); // Ejecutar eliminación de respuestas
+            int respuestasEliminadas = psRespuestas.executeUpdate(); // Ejecutar eliminación de respuestas
+
+            // Eliminar entrevistas asociadas
+            psEntrevistas = con.prepareStatement(eliminarEntrevistas);
+            psEntrevistas.setString(1, ID);
+            int entrevistasEliminadas = psEntrevistas.executeUpdate(); // Ejecutar eliminación de entrevistas
 
             // Eliminar al usuario
             psUsuario = con.prepareStatement(eliminarUsuario);
             psUsuario.setString(1, ID);
-            int filasAfectadas = psUsuario.executeUpdate(); // Ejecutar eliminación de usuario
+            int usuarioEliminado = psUsuario.executeUpdate(); // Ejecutar eliminación de usuario
 
-            if (filasAfectadas > 0) {
+            if (usuarioEliminado > 0) {
+                // Mostrar mensaje dependiendo de si se eliminó correctamente
                 JOptionPane.showMessageDialog(null, "El candidato fue eliminado correctamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró un candidato con el ID proporcionado.");
@@ -239,7 +247,7 @@ public class Ver_Candidato_Preseleccionado {
                 if (con != null) {
                     con.rollback(); // Revertir cambios si hay un error
                 }
-            } catch (Exception rollbackEx) {
+            } catch (SQLException rollbackEx) {
                 JOptionPane.showMessageDialog(null, "Error al hacer rollback: " + rollbackEx.toString());
             }
             JOptionPane.showMessageDialog(null, "Error al eliminar candidato: " + e.toString());
@@ -248,6 +256,9 @@ public class Ver_Candidato_Preseleccionado {
                 // Cerrar los recursos (PreparedStatement, Connection)
                 if (psRespuestas != null) {
                     psRespuestas.close();
+                }
+                if (psEntrevistas != null) {
+                    psEntrevistas.close();
                 }
                 if (psUsuario != null) {
                     psUsuario.close();
@@ -260,5 +271,6 @@ public class Ver_Candidato_Preseleccionado {
             }
         }
     }
+
 
 }
