@@ -7,6 +7,8 @@ package sap.successfactors.RRHH;
 
 import sap.successfactors.Gerente.Ver_Candidato_Preseleccionado;
 import sap.successfactors.RRHH.Ver_Entrevista_Codigo;
+import sap.successfactors.RRHH.Revisar_Entrevista_Candidato;
+
 /**
  *
  * @author thiag
@@ -20,6 +22,8 @@ public class Ver_Entrevista extends javax.swing.JFrame {
         initComponents();
         Ver_Entrevista_Codigo objetoCandidato = new Ver_Entrevista_Codigo();
         objetoCandidato.MostrarEntrevistas(TablaCandidatos);
+        JTextField_ID.setVisible(false); 
+
     }
 
     /**
@@ -127,7 +131,8 @@ public class Ver_Entrevista extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_volverActionPerformed
 
     private void Btn_RevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RevisarActionPerformed
-        Revisar_Entrevista_Candidato vR = new Revisar_Entrevista_Candidato();
+        String candidatoID = JTextField_ID.getText();
+        Revisar_Entrevista_Candidato vR = new Revisar_Entrevista_Candidato(candidatoID);
         this.setVisible(false);
         vR.setSize(600,500);
         vR.setLocationRelativeTo(null);
@@ -136,7 +141,8 @@ public class Ver_Entrevista extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_RevisarActionPerformed
 
     private void TablaCandidatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCandidatosMouseClicked
-        Ver_Entrevista objetoCandidato = new Ver_Entrevista();
+        Ver_Entrevista_Codigo objetoCandidato = new Ver_Entrevista_Codigo();
+        objetoCandidato.SeleccionarCandidato(TablaCandidatos, JTextField_ID);
 // TODO add your handling code here:
     }//GEN-LAST:event_TablaCandidatosMouseClicked
 

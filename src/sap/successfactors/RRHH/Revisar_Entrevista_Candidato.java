@@ -5,17 +5,23 @@
  */
 package sap.successfactors.RRHH;
 
+import javax.swing.JOptionPane;
+import sap.successfactors.Gerente.Crear_Entrevista_Codigo;
+
 /**
  *
  * @author thiag
  */
 public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
-
+    private String candidatoID;
     /**
      * Creates new form Revisar_Entrevista_Candidato
      */
-    public Revisar_Entrevista_Candidato() {
+    public Revisar_Entrevista_Candidato(String candidatoID) {
         initComponents();
+        jComboBox_Puntuacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+        this.candidatoID = candidatoID;
+        System.out.println(candidatoID);
     }
 
     /**
@@ -28,11 +34,11 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
     private void initComponents() {
 
         btn_volver = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox_Puntuacion = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        JTextField_Comentario = new javax.swing.JTextField();
+        Btn_Resumen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,13 +49,18 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox_Puntuacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setText("Puntuacion");
 
         jLabel2.setText("Comentario(Opcional)");
 
-        jButton1.setText("Enviar Resumen de Entrevista");
+        Btn_Resumen.setText("Enviar Resumen de Entrevista");
+        Btn_Resumen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ResumenActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,15 +72,15 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox_Puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
+                            .addComponent(JTextField_Comentario)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addComponent(jButton1)))
+                        .addComponent(Btn_Resumen)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,10 +93,10 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_Puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JTextField_Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
-                .addComponent(jButton1)
+                .addComponent(Btn_Resumen)
                 .addContainerGap(80, Short.MAX_VALUE))
         );
 
@@ -99,6 +110,28 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
         vR.setLocationRelativeTo(null);
         vR.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void Btn_ResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ResumenActionPerformed
+        Ver_Entrevista_Codigo objetoEntrevista = new Ver_Entrevista_Codigo();
+        System.out.println(candidatoID);
+        try {
+            // Validar campos antes de intentar insertar
+            if (jComboBox_Puntuacion.getSelectedItem() == null || JTextField_Comentario.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Error", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Llamar al método para insertar entrevista
+            objetoEntrevista.InsertarResumen(
+                jComboBox_Puntuacion.getSelectedItem().toString(),
+                JTextField_Comentario.getText(),
+                candidatoID // Pasar el candidatoID correctamente
+            );
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al procesar la entrevista: " + e.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_ResumenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,17 +163,16 @@ public class Revisar_Entrevista_Candidato extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Revisar_Entrevista_Candidato().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Resumen;
+    private javax.swing.JTextField JTextField_Comentario;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox_Puntuacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

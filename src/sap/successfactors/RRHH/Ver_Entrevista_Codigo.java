@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -20,6 +21,27 @@ import sap.successfactors.ConexionBDD;
  * @author thiag
  */
 public class Ver_Entrevista_Codigo {
+    private String ID;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+    public void SeleccionarCandidato(JTable paramTablaCandidato, JTextField paramID) {
+        try {
+            int fila = paramTablaCandidato.getSelectedRow();
+            if (fila >= 0) {
+                paramID.setText(paramTablaCandidato.getValueAt(fila, 0).toString());
+            } else {
+                JOptionPane.showMessageDialog(null, "Fila no encontrada");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de selección, error:" + e.toString());
+        }
+    }
     public void MostrarEntrevistas(JTable paramTablaCandidato) {
         ConexionBDD objetoConexion = new ConexionBDD();
         Connection con = null;
@@ -45,7 +67,7 @@ public class Ver_Entrevista_Codigo {
         // Consulta SQL que une las tablas Entrevistas y Usuario, sin filtrar por un solo candidato
         String sql = "SELECT E.IdEntrevista, E.TipoEntrevista, E.Fecha, E.Puntuacion, E.Comentario, " +
                      "U.Nombre, U.Apellido, U.Email FROM Entrevistas E " +
-                     "JOIN Usuario U ON E.IdUsuario = U.IdUsuario";
+                     "JOIN Usuario U ON E.IdUsuario = U.Id";
 
         // Array para almacenar los datos de la fila
         String[] datos = new String[8];
@@ -99,7 +121,42 @@ public class Ver_Entrevista_Codigo {
             }
         }
     }
+    public void InsertarResumen(String puntuacion, String comentario, String candidatoID) {
+        ConexionBDD objetoConexion = new ConexionBDD();
+        Connection con = null;
+        PreparedStatement ps = null;
 
+        // Corregir la consulta SQL
+        String consulta = "UPDATE Entrevistas SET Puntuacion = ?, Comentario = ? WHERE IdEntrevista = ?;";
 
+        try {
+            con = objetoConexion.Conectar();  // Establecer la conexión
+            ps = con.prepareStatement(consulta);
 
+            // Asignar los parámetros de la consulta
+            ps.setString(1, puntuacion);  // Puntuación seleccionada
+            ps.setString(2, comentario);  // Comentario ingresado
+            ps.setString(3, candidatoID); // ID del candidato (o entrevista)
+
+            // Ejecutar la actualización
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Resumen de la entrevista actualizado correctamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al actualizar el resumen: " + e.toString());
+        } finally {
+            try {
+                // Cerrar los recursos (PreparedStatement, Connection)
+                if (ps != null) {
+                    ps.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close(); // Cerrar la conexión
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
+        }
+    }
 }
+

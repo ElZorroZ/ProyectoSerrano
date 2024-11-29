@@ -184,7 +184,7 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
                 abrirVentana1(); 
             } else if (idEstado == 2) { 
                 abrirVentana2(); 
-            } else if (idEstado == 3) { 
+            } else if (idEstado == 3 || idEstado == 4) { 
                 abrirVentana3(mail); 
             } else { 
                 JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE); } 
