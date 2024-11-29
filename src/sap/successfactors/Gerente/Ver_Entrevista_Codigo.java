@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import sap.successfactors.ConexionBDD;
+import java.sql.*;
 
 /**
  *
@@ -22,7 +23,9 @@ import sap.successfactors.ConexionBDD;
 public class Ver_Entrevista_Codigo {
     public void MostrarEntrevistas(JTable paramTablaTotalEntrevistas) {
         ConexionBDD objetoConexion = new ConexionBDD();
-        Connection con = objetoConexion.Conectar();
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalEntrevistas.setRowSorter(OrdenarTabla);
@@ -36,13 +39,15 @@ public class Ver_Entrevista_Codigo {
         modelo.addColumn("Comentario");
 
         paramTablaTotalEntrevistas.setModel(modelo);
-        
+
         String sql = "SELECT * FROM Entrevistas";
         String[] datos = new String[7];
 
         try {
-            Statement st = objetoConexion.Conectar().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            con = objetoConexion.Conectar(); // Establecer la conexión
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+
             while (rs.next()) {
                 datos[0] = rs.getString("IdEntrevista");
                 datos[1] = rs.getString("IdEmpleado");  
@@ -51,14 +56,28 @@ public class Ver_Entrevista_Codigo {
                 datos[4] = rs.getString("Fecha");   
                 datos[5] = rs.getString("Puntuacion");   
                 datos[6] = rs.getString("Comentario");   
-               
+
                 modelo.addRow(datos);
             }
             paramTablaTotalEntrevistas.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar correctamente los registros, error:" + e.toString());
         } finally {
-            objetoConexion.cerrarConexion();
+            try {
+                // Cerrar los recursos (ResultSet, Statement, Connection)
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close(); // Cerrar la conexión
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
         }
     }
+
 }

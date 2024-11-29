@@ -12,9 +12,7 @@ import sap.successfactors.Pantalla_Inicio;
  *
  * @author PC
  */
-public class SAPSuccessFactors {
-    ConexionBDD objetoConexion = new ConexionBDD();
-    Connection con = objetoConexion.Conectar();
+public class SAPSuccessFactors {    
     /**
      * @param args the command line arguments
      */

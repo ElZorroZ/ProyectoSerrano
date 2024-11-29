@@ -76,9 +76,7 @@ public class Borrar_Formulario_Codigo {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de conexión: " + e.toString());
         }
-        finally {
-            objetoConexion.cerrarConexion();
-        }
+
         
     }
     public void SeleccionarFormulario(JTable paramTablaFormulario, JTextField paramID) {
@@ -95,7 +93,9 @@ public class Borrar_Formulario_Codigo {
     }
     public void MostrarFormularios(JTable paramTablaTotalFormularios) {
         ConexionBDD objetoConexion = new ConexionBDD();
-        Connection con = objetoConexion.Conectar();
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<>(modelo);
         paramTablaTotalFormularios.setRowSorter(OrdenarTabla);
@@ -103,24 +103,39 @@ public class Borrar_Formulario_Codigo {
         modelo.addColumn("IDFormulario");
         modelo.addColumn("Nombre");
         paramTablaTotalFormularios.setModel(modelo);
-        
+
         String sql = "SELECT * FROM Formulario";
         String[] datos = new String[2];
 
         try {
-            Statement st = objetoConexion.Conectar().createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            con = objetoConexion.Conectar();  // Establecer la conexión
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
             while (rs.next()) {
                 datos[0] = rs.getString("Id");
                 datos[1] = rs.getString("Nombre");   
-               
+
                 modelo.addRow(datos);
             }
             paramTablaTotalFormularios.setModel(modelo);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo mostrar correctamente los registros, error:" + e.toString());
         } finally {
-            objetoConexion.cerrarConexion();
+            // Cerrar los recursos (ResultSet, Statement y Connection)
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null && !con.isClosed()) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los recursos: " + e.toString());
+            }
         }
     }
+
 }

@@ -46,7 +46,91 @@ public class ConexionBDD {
         
         return miConexion; // Retorna la conexión (puede ser nula si hubo un error)
     }
-    public void cerrarConexion() {
+    public void cerrarConexionRsPst(PreparedStatement pst, ResultSet rs) {
+        try {
+            // Cerrar ResultSet
+            if (rs != null) {
+                rs.close();
+                System.out.println("ResultSet cerrado");
+            }
+
+            // Cerrar PreparedStatement
+            if (pst != null) {
+                pst.close();
+                System.out.println("PreparedStatement cerrado");
+            }
+
+            // Cerrar la conexión
+            if (miConexion != null && !miConexion.isClosed()) {
+                miConexion.close(); // Cierra la conexión
+                System.out.println("Conexion Cerrada");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión o recursos: " + e.toString());
+        }
+    }
+    public void cerrarConexionCs(CallableStatement cs) {
+        try {
+
+             // Cerrar CallableStatement
+            if (cs != null) {
+                cs.close();
+                System.out.println("CallableStatement cerrado");
+            }
+
+            // Cerrar la conexión
+            if (miConexion != null && !miConexion.isClosed()) {
+                miConexion.close(); // Cierra la conexión
+                System.out.println("Conexion Cerrada");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión o recursos: " + e.toString());
+        }
+    }
+    public void cerrarConexionRs(ResultSet rs) {
+        try {
+
+            // Cerrar ResultSet
+            if (rs != null) {
+                rs.close();
+                System.out.println("ResultSet cerrado");
+            }
+
+            // Cerrar la conexión
+            if (miConexion != null && !miConexion.isClosed()) {
+                miConexion.close(); // Cierra la conexión
+                System.out.println("Conexion Cerrada");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión o recursos: " + e.toString());
+        }
+    }
+    public void cerrarConexionRsSt(ResultSet rs, Statement st) {
+        try {
+
+            // Cerrar ResultSet
+            if (rs != null) {
+                rs.close();
+                System.out.println("ResultSet cerrado");
+            }
+            if (st != null) {
+                st.close(); // Cerrar Statement
+            }
+
+            // Cerrar la conexión
+            if (miConexion != null && !miConexion.isClosed()) {
+                miConexion.close(); // Cierra la conexión
+                System.out.println("Conexion Cerrada");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar la conexión o recursos: " + e.toString());
+        }
+    }
+    public void cerrarConexion2() {
         try {
             if (miConexion != null && !miConexion.isClosed()) {
                 miConexion.close(); // Cierra la conexión
@@ -58,4 +142,6 @@ public class ConexionBDD {
             System.out.println("No se pudo cerrar la conexión: " + e.toString());
         }
     }
+
+
 }

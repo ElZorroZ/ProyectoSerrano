@@ -33,7 +33,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         btn_Formularios = new javax.swing.JButton();
         Btn_Preseleccionar = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        Btn_VerEntrevista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +58,12 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ver entrevistas");
+        Btn_VerEntrevista.setText("Ver entrevistas");
+        Btn_VerEntrevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_VerEntrevistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +75,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(128, 128, 128)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_VerEntrevista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Btn_Preseleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Formularios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(115, Short.MAX_VALUE))
@@ -84,7 +89,7 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(Btn_Preseleccionar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(Btn_VerEntrevista)
                 .addContainerGap(130, Short.MAX_VALUE))
         );
 
@@ -111,6 +116,13 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
         ver.setLocationRelativeTo(null);
         ver.setVisible(true);
     }//GEN-LAST:event_btn_FormulariosActionPerformed
+
+    private void Btn_VerEntrevistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VerEntrevistaActionPerformed
+        Ver_Entrevista ver=new Ver_Entrevista();
+        ver.setLocationRelativeTo(null);
+        ver.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_Btn_VerEntrevistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,8 +161,8 @@ public class Pantalla_RRHH extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Preseleccionar;
+    private javax.swing.JButton Btn_VerEntrevista;
     private javax.swing.JButton btn_Formularios;
     private javax.swing.JButton btn_volver;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

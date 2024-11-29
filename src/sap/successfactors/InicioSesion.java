@@ -72,7 +72,7 @@ public class InicioSesion {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            objetoConexion.cerrarConexion();
+            objetoConexion.cerrarConexionRsPst(pst,rs);
         }
         return idEstado;
         
