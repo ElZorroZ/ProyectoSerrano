@@ -159,7 +159,6 @@ public class Borrar_Formulario extends javax.swing.JFrame {
     private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         Pantalla_JefeRRHH vG = new Pantalla_JefeRRHH();
         this.setVisible(false);
-        vG.setSize(600,500);
         vG.setLocationRelativeTo(null);
         vG.setVisible(true);
     }//GEN-LAST:event_btn_volverActionPerformed

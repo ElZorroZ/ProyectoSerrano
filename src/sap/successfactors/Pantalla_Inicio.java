@@ -196,7 +196,6 @@ public class Pantalla_Inicio extends javax.swing.JFrame {
         Pantalla_JefeRRHH  vG = new Pantalla_JefeRRHH();
         this.setVisible(false);
         vG.setVisible(true);
-        vG.setSize(930,530);
         vG.setLocationRelativeTo(null);
     } 
     private void abrirVentana2() { 
